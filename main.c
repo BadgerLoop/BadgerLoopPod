@@ -62,64 +62,11 @@
 /* Main Program                                                               */
 /******************************************************************************/
 
-//Delay function for y'all
-void delayFunc(void) {
-	int i, j;
-	for(i=0;i<5000;i++)
-	{
-		for(j=0;j<2;j++) 
-		{
-			/* Well its Just a Timer */
-		}    
-	}  
-}
-
 /* helpers */
 void CANrx_lockCbSync(bool_t syncReceived) {
     if(syncReceived) {
         CO_CAN_ISR_ENABLE = 0;
         CO_CAN_ISR2_ENABLE = 0;
-    }
-}
-
-void testMethod(void)
-{
-        /* Initialize two CAN led diodes */
-    #define CAN_RUN_LED        LATAbits.LATA0
-    #define CAN_ERROR_LED      LATAbits.LATA1
-    TRISAbits.TRISA0 = 0;
-    TRISAbits.TRISA1 = 0;
-    CAN_RUN_LED = 0;      CAN_ERROR_LED = 1;
-
-    /* Initialize other LED diodes for RPDO */
-    TRISAbits.TRISA2 = 0; LATAbits.LATA2 = 0;
-    TRISAbits.TRISA3 = 0; LATAbits.LATA3 = 0;
-    TRISAbits.TRISA4 = 0; LATAbits.LATA4 = 0;
-    TRISAbits.TRISA5 = 0; LATAbits.LATA5 = 0;
-    TRISAbits.TRISA6 = 0; LATAbits.LATA6 = 0;
-    TRISAbits.TRISA7 = 0; LATAbits.LATA7 = 0;
-    
-    // Nick: MPU6050
-    //MPU6050(MPU6050_ADDRESS_AD0_LOW);
-    // Nick: Initialize MPU6050
-    //MPU6050_initialize();
-    while(1)
-    {
-        LATAbits.LATA3 ^= 1;
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
-        delayFunc();
     }
 }
 
