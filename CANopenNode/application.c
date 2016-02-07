@@ -126,15 +126,16 @@ void programStart(void){
     
     init_I2C(); //Start I2C
         
-    /* // Nick: MPU6050
-    MPU6050(MPU6050_ADDRESS_AD0_LOW);
+     // Nick: MPU6050
+    /* MPU6050(MPU6050_ADDRESS_AD0_LOW);
     // Nick: Initialize MPU6050
-    MPU6050_initialize(); */
+    MPU6050_initialize();
+    BOOL mpuWorking = MPU6050_testConnection(); */
     
-    VL6180x(0x29);
+    /* VL6180x(0x29);
     int vl6180_good = VL6180xInit();
     LATAbits.LATA3 = 1;
-    VL6180xDefautSettings();
+    VL6180xDefautSettings(); */
 }
 
 
@@ -182,23 +183,23 @@ void programAsync(uint16_t timer1msDiff){
     /* if(CO->em->errorStatusBits[8] || CO->em->errorStatusBits[9])
         *CO->emPr->errorRegister |= 0x20; */
     
-    uint8_t value = getDistance();
+    /* uint8_t value = getDistance();
     
     if (value != vl6180_distance)
     {
         ledChange();
     }
-    vl6180_distance = value;
+    vl6180_distance = value; */
     
     //Nick: 
-    /*int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
+    /* int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
     ay = 11;
     MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
     
     if (ay > 10)
     {
         ledChange();
-    } */
+    } */ 
 }
 
 

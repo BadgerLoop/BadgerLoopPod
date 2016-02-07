@@ -266,7 +266,7 @@ int8_t I2Cdev_readByte2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint8
     StopTransfer();
     if(!Success)
     {
-        while(1);
+        return;
     }
 
 
@@ -570,7 +570,7 @@ BOOL I2Cdev_writeByte2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint8_
     StopTransfer();
     if(!Success)
     {
-        while(1);
+        return;
     }
 
     // Wait for EEPROM to complete write process, by polling the ack status.
@@ -660,6 +660,8 @@ BOOL I2Cdev_writeDWord(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint32
 }
 
 BOOL I2Cdev_writeWords(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint16_t* data) {
+    
+    return I2Cdev_writeByte2(devAddr, (uint16_t)regAddr, length * 2, (uint8_t*)data);
     /* // S
     IdleI2C();
     StartI2C();
