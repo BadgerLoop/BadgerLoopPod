@@ -157,6 +157,7 @@ void StopTransfer( void )
         status = I2CGetStatus(EEPROM_I2C_BUS);
 
     } while ( !(status & I2C_STOP) );
+    return;
 }
 
 /** Read multiple bytes from an 8-bit device register.
@@ -539,7 +540,7 @@ BOOL I2Cdev_writeByte2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint8_
     // Start the transfer to write data to the EEPROM
     if( !StartTransfer(FALSE) )
     {
-        while(1);
+        return;
     }
 
     // Transmit all data
@@ -613,7 +614,7 @@ BOOL I2Cdev_writeByte2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint8_
  * @return Status of operation (true = success)
  */
 BOOL I2Cdev_writeByte(uint8_t devAddr, uint8_t regAddr, uint8_t data) {
-    return I2Cdev_writeBytes(devAddr, regAddr, 1, &data);
+    return I2Cdev_writeBytes(devAddr, regAddr, 1, data);
 }
 
 /** Write multiple words to a 16-bit device register.

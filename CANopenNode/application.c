@@ -124,12 +124,12 @@ void programStart(void){
     TRISAbits.TRISA6 = 0; LATAbits.LATA6 = 0;
     TRISAbits.TRISA7 = 0; LATAbits.LATA7 = 0;
     
-    // Nick: MPU6050
-    //MPU6050(MPU6050_ADDRESS_AD0_LOW);
-    // Nick: Initialize MPU6050
-    //MPU6050_initialize();
-    
     init_I2C(); //Start I2C
+        
+    /* // Nick: MPU6050
+    MPU6050(MPU6050_ADDRESS_AD0_LOW);
+    // Nick: Initialize MPU6050
+    MPU6050_initialize(); */
     
     VL6180x(0x29);
     int vl6180_good = VL6180xInit();
@@ -155,23 +155,22 @@ void programEnd(void){
 }
 
 void ledChange(void) {
-   while(1)
-    {
-        LATAbits.LATA3 ^= 1;
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-    }
+    LATAbits.LATA3 ^= 1;
+    delayzz();
+    delayzz();
+    delayzz();
+    delayzz();
+    delayzz();
+    delayzz();
+    delayzz();
+    delayzz();
+    delayzz();
+    delayzz();
+    delayzz();
 }
+
 uint8_t vl6180_distance = 0;
+
 /******************************************************************************/
 void programAsync(uint16_t timer1msDiff){
 
@@ -182,6 +181,7 @@ void programAsync(uint16_t timer1msDiff){
     /* If error register is set, device will leave operational state. */
     /* if(CO->em->errorStatusBits[8] || CO->em->errorStatusBits[9])
         *CO->emPr->errorRegister |= 0x20; */
+    
     uint8_t value = getDistance();
     
     if (value != vl6180_distance)
@@ -189,7 +189,16 @@ void programAsync(uint16_t timer1msDiff){
         ledChange();
     }
     vl6180_distance = value;
-
+    
+    //Nick: 
+    /*int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
+    ay = 11;
+    MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+    
+    if (ay > 10)
+    {
+        ledChange();
+    } */
 }
 
 

@@ -50,7 +50,7 @@ UINT8               i2cbyte;
 
 #define I2C_READ    1
 #define I2C_WRITE   0
-#define I2C_CLOCK_FREQ  5000
+#define I2C_CLOCK_FREQ  400000
 // EEPROM Constants
 #define EEPROM_I2C_BUS  I2C1
 
