@@ -134,7 +134,6 @@ void programStart(void){
     VL6180x(0x29);
     int vl6180_good = VL6180xInit();
     LATAbits.LATA3 = 1;
-    
     VL6180xDefautSettings();
 }
 
@@ -156,8 +155,8 @@ void programEnd(void){
 }
 
 void ledChange(void) {
-    //while(1)
-    //{
+   while(1)
+    {
         LATAbits.LATA3 ^= 1;
         delayzz();
         delayzz();
@@ -170,7 +169,7 @@ void ledChange(void) {
         delayzz();
         delayzz();
         delayzz();
-    //}
+    }
 }
 uint8_t vl6180_distance = 0;
 /******************************************************************************/
@@ -183,12 +182,6 @@ void programAsync(uint16_t timer1msDiff){
     /* If error register is set, device will leave operational state. */
     /* if(CO->em->errorStatusBits[8] || CO->em->errorStatusBits[9])
         *CO->emPr->errorRegister |= 0x20; */
-    
-    //Nick: 
-    int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
-    ay = 11;
-    //ledChange();
-    
     uint8_t value = getDistance();
     
     if (value != vl6180_distance)
@@ -196,13 +189,7 @@ void programAsync(uint16_t timer1msDiff){
         ledChange();
     }
     vl6180_distance = value;
-    /* MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-    if (ay < 10)
-    {
-        LATAbits.LATA3 = 0;
-        return;
-    }
-    LATAbits.LATA3 = 1; */
+
 }
 
 
@@ -229,8 +216,8 @@ void program1ms(void){
     /* Example error is simulated from buttons on Explorer16 */
     if(!PORTDbits.RD6) CO_errorReport(CO->em, CO_EMA_TEST1_INFORMATIVE, CO_EMC_GENERIC, 0x12345678L);
     if(!PORTDbits.RD7) CO_errorReset(CO->em, CO_EMA_TEST1_INFORMATIVE, 0xAAAAAABBL);
-
-
+    
+    
 #if 0
     /* Debug - disable CANrx for 650 ms, if button pressed. */
     static uint16_t tmrDebug = 0;

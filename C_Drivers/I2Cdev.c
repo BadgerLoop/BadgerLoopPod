@@ -1,4 +1,5 @@
 #include "I2Cdev.h"
+#include <plib.h>
 #include <hardwareProfile.h>
 
 /*******************************************************************************
