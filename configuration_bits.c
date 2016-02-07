@@ -28,10 +28,10 @@
 /* TODO Fill in your configuration bits from the config bits generator here.  */
 
     #pragma config FNOSC    = PRIPLL                        // Oscillator Selection
-    #pragma config POSCMOD  = XT                            // Primary Oscillator
+    #pragma config POSCMOD  = HS                            // Primary Oscillator
     #pragma config FPLLIDIV = DIV_2                         // PLL input divider
     #pragma config FPLLMUL  = MUL_20                        // PLL multiplier
-    #pragma config FPLLODIV = DIV_2                         // PLL output divider
+    #pragma config FPLLODIV = DIV_1                        // PLL output divider
     #pragma config FPBDIV   = DIV_1                         // Peripheral bus clock divider
     #pragma config FSOSCEN  = OFF                           // Secondary Oscillator Enable
 
@@ -50,7 +50,7 @@
     #pragma config PWP      = OFF                           // Program Flash Write Protect
 
     //*    Debug settings
-    #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
-    //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
+    #pragma config ICESEL   = ICS_PGx2                      // ICE/ICD Comm Channel Select
+    #pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
-    #pragma config FCANIO = OFF //Nick: Alternate CAN Pins
+    //#pragma config FCANIO = OFF //Nick: Alternate CAN Pins

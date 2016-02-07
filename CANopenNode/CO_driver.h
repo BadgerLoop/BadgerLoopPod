@@ -56,7 +56,7 @@
 #include <stdbool.h>        /* for true and false */
 
 #define CO_FSYS     80000      /* (80MHz Quartz used) */
-#define CO_PBCLK    20000      /* peripheral bus clock */
+#define CO_PBCLK    (CO_FSYS / (1<<OSCCONbits.PBDIV))      /* peripheral bus clock */
 
 
 /* CAN module base address */

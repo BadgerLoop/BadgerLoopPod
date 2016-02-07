@@ -4,6 +4,12 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="C_Drivers" displayName="C_Drivers" projectFiles="true">
+        <itemPath>C_Drivers/hardwareProfile.h</itemPath>
+        <itemPath>C_Drivers/MPU6050.h</itemPath>
+        <itemPath>C_Drivers/SparkFun_VL6180X.h</itemPath>
+        <itemPath>C_Drivers/I2Cdev.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="CANopenNode" displayName="CANopenNode" projectFiles="true">
         <itemPath>CANopenNode/CANopen.h</itemPath>
         <itemPath>CANopenNode/CO_driver.h</itemPath>
@@ -28,6 +34,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="C_Drivers" displayName="C_Drivers" projectFiles="true">
+        <itemPath>C_Drivers/MPU6050.c</itemPath>
+        <itemPath>C_Drivers/SparkFun_VL6180X.c</itemPath>
+        <itemPath>C_Drivers/I2Cdev.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="CANopenNode" displayName="CANopenNode" projectFiles="true">
         <itemPath>CANopenNode/CANopen.c</itemPath>
         <itemPath>CANopenNode/CO_driver.c</itemPath>
@@ -60,6 +71,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>CANopenNode</Elem>
+    <Elem>C_Drivers</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -198,7 +210,7 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
-        <property key="common-include-directories" value="CANopenNode/"/>
+        <property key="common-include-directories" value="CANopenNode/;C_Drivers"/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="false"/>
         <property key="relaxed-math" value="false"/>

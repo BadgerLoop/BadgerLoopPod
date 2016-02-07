@@ -133,7 +133,7 @@ struct sCO_OD_EEPROM CO_OD_EEPROM = {
 /*1A03*/ {0x0, 0x0L, 0x0L, 0x0L, 0x0L, 0x0L, 0x0L, 0x0L, 0x0L}},
 /*1F80*/ 0x0L,
 /*2101*/ 0x30,
-/*2102*/ 0x1F4, //Nick: CAN Bit rate in kbps in hexadecimal
+/*2102*/ 0x1F4, //Nick: CAN Bit rate in kbps in hexadecimal (500kbps)
 /*2111*/ {1L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L, 0L},
 
            CO_OD_FIRST_LAST_WORD

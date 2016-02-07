@@ -60,6 +60,7 @@
 #include <plib.h>
 #include <stdint.h>         /* For UINT32 definition                          */
 #include <stdbool.h>        /* For true/false definition                      */
+#include <MPU6050.h>
 
 /* Global variables */
 
@@ -127,24 +128,14 @@ void programStart(void){
     //MPU6050(MPU6050_ADDRESS_AD0_LOW);
     // Nick: Initialize MPU6050
     //MPU6050_initialize();
-//    while(1)
-//    {
-//        LATAbits.LATA3 ^= 1;
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//        delayzz();
-//    }
+    
+    init_I2C(); //Start I2C
+    
+    VL6180x(0x29);
+    int vl6180_good = VL6180xInit();
+    LATAbits.LATA3 = 1;
+    
+    VL6180xDefautSettings();
 }
 
 
@@ -164,6 +155,24 @@ void programEnd(void){
     CAN_RUN_LED = 0; CAN_ERROR_LED = 0;
 }
 
+void ledChange(void) {
+    //while(1)
+    //{
+        LATAbits.LATA3 ^= 1;
+        delayzz();
+        delayzz();
+        delayzz();
+        delayzz();
+        delayzz();
+        delayzz();
+        delayzz();
+        delayzz();
+        delayzz();
+        delayzz();
+        delayzz();
+    //}
+}
+uint8_t vl6180_distance = 0;
 /******************************************************************************/
 void programAsync(uint16_t timer1msDiff){
 
@@ -178,25 +187,22 @@ void programAsync(uint16_t timer1msDiff){
     //Nick: 
     int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
     ay = 11;
-    //MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-    while(1)
+    //ledChange();
+    
+    uint8_t value = getDistance();
+    
+    if (value != vl6180_distance)
     {
-        LATAbits.LATA3 ^= 1;
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
-        delayzz();
+        ledChange();
     }
+    vl6180_distance = value;
+    /* MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+    if (ay < 10)
+    {
+        LATAbits.LATA3 = 0;
+        return;
+    }
+    LATAbits.LATA3 = 1; */
 }
 
 
@@ -207,7 +213,7 @@ void program1ms(void){
     /* Read RPDO and show it on LEDS on Explorer16. */
     leds = OD_writeOutput8Bit[0];
     LATAbits.LATA2 = (leds&0x04) ? 1 : 0;
-    LATAbits.LATA3 = (leds&0x08) ? 1 : 0;
+    //LATAbits.LATA3 = (leds&0x08) ? 1 : 0;
     LATAbits.LATA4 = (leds&0x10) ? 1 : 0;
     LATAbits.LATA5 = (leds&0x20) ? 1 : 0;
     LATAbits.LATA6 = (leds&0x40) ? 1 : 0;

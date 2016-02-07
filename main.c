@@ -16,7 +16,7 @@
 #include "application.c"
 #define CO_FSYS     80000      /* (80MHz Quartz used) */
 #define CO_PBCLK    (CO_FSYS / (1<<OSCCONbits.PBDIV))     /* peripheral bus clock */
-//#define CO_NO_CAN_MODULES 2
+#define CO_NO_CAN_MODULES 2
 #include <CANopen.h>
 
 #ifdef USE_EEPROM
