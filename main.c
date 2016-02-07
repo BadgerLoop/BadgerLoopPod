@@ -15,7 +15,7 @@
 /* Code added by njaunich */
 #include "application.c"
 #define CO_FSYS     80000      /* (80MHz Quartz used) */
-#define CO_PBCLK    20000      /* peripheral bus clock */
+#define CO_PBCLK    (CO_FSYS / (1<<OSCCONbits.PBDIV))     /* peripheral bus clock */
 //#define CO_NO_CAN_MODULES 2
 #include <CANopen.h>
 
@@ -179,9 +179,9 @@ int32_t main(void)
         /* Configure Timer interrupt function for execution every 1 millisecond */
         CO_TMR_CON = 0;
         CO_TMR_TMR = 0;
-        #if CO_PBCLK > 65000
+        /* #if CO_PBCLK > 65000
             #error wrong timer configuration
-        #endif
+        #endif */
         CO_TMR_PR = CO_PBCLK - 1;  /* Period register */
         CO_TMR_CON = 0x8000;       /* start timer (TON=1) */
         CO_TMR_ISR_FLAG = 0;       /* clear interrupt flag */
