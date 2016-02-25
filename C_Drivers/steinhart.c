@@ -13,14 +13,17 @@
 int calculateTemperatureEquation(void)
 {
     int resistance = 10000;
-    float voltage = (310);	//(readThermistorVoltage())*
+    float voltage = (readThermistorVoltage())*(1/310);
     float inputVoltage = 3.3;
     float thermistorResistance;
     float inverseTemperature;
     int temperature;
-    float a = 1.032935491E-3;
-    float b = 2.384223307E-4;
-    float c = 1.601529131E-7;
+//    float a = 1.032935491E-3;
+//    float b = 2.384223307E-4;
+//    float c = 1.601529131E-7;
+    float a = 1.02450504524715E-3;
+    float b = 2.40087964067526E-4;
+    float c = 1.49079434102731E-7;
     
     thermistorResistance = resistance*((inputVoltage*resistance - voltage*
             (2*resistance))/(inputVoltage*resistance + voltage*(2*resistance)));
