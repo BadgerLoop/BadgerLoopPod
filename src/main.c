@@ -13,11 +13,12 @@
 #include "user.h"           /* User funct/params, such as InitApp             */
 
 /* Code added by njaunich */
-#include "application.c"
+#include "application.h"
+#include "configuration_bits.h"
 //#define CO_FSYS     80000      /* (80MHz Quartz used) */
 //#define CO_PBCLK    40000//(CO_FSYS / (1<<OSCCONbits.PBDIV))     /* peripheral bus clock */
 #define CO_NO_CAN_MODULES 1
-#include <CANopen.h>
+#include "CANopen.h"
 
 #ifdef USE_EEPROM
     #include "eeprom.h"            /* 25LC128 eeprom chip connected to SPI2A port. */

@@ -2,3 +2,7 @@
 *.d
 dist
 disassembly
+nbproject/private/configurations.xml
+nbproject/private/private.xml
+nbproject/Makefile-local-PIC32MX795F512L.mk
+nbproject/Makefile-genesis.properties

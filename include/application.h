@@ -1,3 +1,10 @@
+extern void delayzz(void);
+extern void programStart(void);
+extern void communicationReset(void);
+extern void programEnd(void);
+extern void ledChange(void);
+extern void programAsync(uint16_t timer1msDiff);
+extern void program1ms(void);
 
 // CAN LEDs
 #define CAN_RUN_LED_DIR     TRISDbits.TRISD5

@@ -1,14 +1,4 @@
 /******************************************************************************/
-/* Files to Include                                                           */
-/******************************************************************************/
-
-#ifdef __XC32
-    #include <xc.h>          /* Defines special funciton registers, CP0 regs  */
-#endif
-
-//#include <plib.h>            /* Include to use PIC32 peripheral libraries     */
-
-/******************************************************************************/
 /* Configuration Bits                                                         */
 /*                                                                            */
 /* Refer to 'C32 Configuration Settings' under the Help > Contents            */
@@ -28,15 +18,15 @@
 /* TODO Fill in your configuration bits from the config bits generator here.  */
 
     #pragma config FNOSC    = PRIPLL                        // Oscillator Selection
-    #pragma config POSCMOD  = XT //HS                       // Primary Oscillator
+    #pragma config POSCMOD  = XT     //HS                       // Primary Oscillator
     #pragma config FPLLIDIV = DIV_2                         // PLL input divider
-    #pragma config FPLLMUL  = MUL_16 //20                   // PLL multiplier
-    #pragma config FPLLODIV = DIV_1                         // PLL output divider
+    #pragma config FPLLMUL  = MUL_16 //20                        // PLL multiplier
+    #pragma config FPLLODIV = DIV_1                        // PLL output divider
     #pragma config FPBDIV   = DIV_2                         // Peripheral bus clock divider
     #pragma config FSOSCEN  = OFF                           // Secondary Oscillator Enable
 
     //*    Clock control settings
-    #pragma config IESO     = OFF //ON                      // Internal/External Switch-over
+    #pragma config IESO     = OFF   //ON                         // Internal/External Switch-over
     #pragma config FCKSM    = CSDCMD                        // Clock Switching & Fail Safe Clock Monitor
     #pragma config OSCIOFNC = OFF                           // CLKO Enable
 
@@ -51,6 +41,6 @@
 
     //*    Debug settings
     #pragma config ICESEL   = ICS_PGx2                      // ICE/ICD Comm Channel Select
-    #pragma config DEBUG    = ON                            // DO NOT SET THIS CONFIG BIT, it will break debugging
+    #pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
     #pragma config FCANIO = OFF //Nick: Alternate CAN Pins

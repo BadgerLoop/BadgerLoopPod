@@ -4,30 +4,36 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <logicalFolder name="C_Drivers" displayName="C_Drivers" projectFiles="true">
-        <itemPath>C_Drivers/hardwareProfile.h</itemPath>
-        <itemPath>C_Drivers/MPU6050.h</itemPath>
-        <itemPath>C_Drivers/SparkFun_VL6180X.h</itemPath>
-        <itemPath>C_Drivers/I2Cdev.h</itemPath>
+      <logicalFolder name="f3" displayName="application" projectFiles="true">
+        <itemPath>include/user.h</itemPath>
+        <itemPath>include/application.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="CANopenNode" displayName="CANopenNode" projectFiles="true">
-        <itemPath>CANopenNode/CANopen.h</itemPath>
-        <itemPath>CANopenNode/CO_driver.h</itemPath>
-        <itemPath>CANopenNode/CO_Emergency.h</itemPath>
-        <itemPath>CANopenNode/CO_HBconsumer.h</itemPath>
-        <itemPath>CANopenNode/CO_NMT_Heartbeat.h</itemPath>
-        <itemPath>CANopenNode/CO_OD.h</itemPath>
-        <itemPath>CANopenNode/CO_PDO.h</itemPath>
-        <itemPath>CANopenNode/CO_SDO.h</itemPath>
-        <itemPath>CANopenNode/CO_SDOmaster.h</itemPath>
-        <itemPath>CANopenNode/CO_SYNC.h</itemPath>
-        <itemPath>CANopenNode/crc16-ccitt.h</itemPath>
-        <itemPath>CANopenNode/eeprom.h</itemPath>
+      <logicalFolder name="f2" displayName="core" projectFiles="true">
+        <itemPath>include/configuration_bits.h</itemPath>
+        <itemPath>include/system.h</itemPath>
       </logicalFolder>
-      <itemPath>system.h</itemPath>
-      <itemPath>user.h</itemPath>
-      <itemPath>CANopenNode/application.h</itemPath>
-      <itemPath>CANopenNode/configuration_bits.h</itemPath>
+      <logicalFolder name="f1" displayName="hardware" projectFiles="true">
+        <itemPath>include/I2Cdev.h</itemPath>
+        <itemPath>include/MPU6050.h</itemPath>
+        <itemPath>include/hardwareProfile.h</itemPath>
+        <itemPath>include/SparkFun_VL6180X.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="lib" displayName="lib" projectFiles="true">
+        <logicalFolder name="CANopenNode" displayName="CANopenNode" projectFiles="true">
+          <itemPath>lib/CANopenNode/CANopen.h</itemPath>
+          <itemPath>lib/CANopenNode/CO_driver.h</itemPath>
+          <itemPath>lib/CANopenNode/CO_Emergency.h</itemPath>
+          <itemPath>lib/CANopenNode/CO_HBconsumer.h</itemPath>
+          <itemPath>lib/CANopenNode/CO_NMT_Heartbeat.h</itemPath>
+          <itemPath>lib/CANopenNode/CO_PDO.h</itemPath>
+          <itemPath>lib/CANopenNode/CO_SDO.h</itemPath>
+          <itemPath>lib/CANopenNode/CO_SDOmaster.h</itemPath>
+          <itemPath>lib/CANopenNode/CO_SYNC.h</itemPath>
+          <itemPath>lib/CANopenNode/crc16-ccitt.h</itemPath>
+          <itemPath>lib/CANopenNode/eeprom.h</itemPath>
+          <itemPath>lib/CANopenNode/CO_OD.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -36,44 +42,51 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="C_Drivers" displayName="C_Drivers" projectFiles="true">
-        <itemPath>C_Drivers/MPU6050.c</itemPath>
-        <itemPath>C_Drivers/SparkFun_VL6180X.c</itemPath>
-        <itemPath>C_Drivers/I2Cdev.c</itemPath>
+      <logicalFolder name="f3" displayName="application" projectFiles="true">
+        <itemPath>src/interrupts.c</itemPath>
+        <itemPath>src/main.c</itemPath>
+        <itemPath>src/exceptions.c</itemPath>
+        <itemPath>src/user.c</itemPath>
+        <itemPath>src/application.c</itemPath>
       </logicalFolder>
       <logicalFolder name="CANopenNode" displayName="CANopenNode" projectFiles="true">
-        <itemPath>CANopenNode/CANopen.c</itemPath>
-        <itemPath>CANopenNode/CO_driver.c</itemPath>
-        <itemPath>CANopenNode/CO_Emergency.c</itemPath>
-        <itemPath>CANopenNode/CO_HBconsumer.c</itemPath>
-        <itemPath>CANopenNode/CO_NMT_Heartbeat.c</itemPath>
-        <itemPath>CANopenNode/CO_OD.c</itemPath>
-        <itemPath>CANopenNode/CO_PDO.c</itemPath>
-        <itemPath>CANopenNode/CO_SDO.c</itemPath>
-        <itemPath>CANopenNode/CO_SDOmaster.c</itemPath>
-        <itemPath>CANopenNode/CO_SYNC.c</itemPath>
-        <itemPath>CANopenNode/crc16-ccitt.c</itemPath>
-        <itemPath>CANopenNode/eeprom.c</itemPath>
+        <itemPath>lib/CANopenNode/CANopen.c</itemPath>
+        <itemPath>lib/CANopenNode/CO_driver.c</itemPath>
+        <itemPath>lib/CANopenNode/CO_Emergency.c</itemPath>
+        <itemPath>lib/CANopenNode/CO_HBconsumer.c</itemPath>
+        <itemPath>lib/CANopenNode/CO_NMT_Heartbeat.c</itemPath>
+        <itemPath>lib/CANopenNode/CO_OD.c</itemPath>
+        <itemPath>lib/CANopenNode/CO_PDO.c</itemPath>
+        <itemPath>lib/CANopenNode/CO_SDO.c</itemPath>
+        <itemPath>lib/CANopenNode/CO_SDOmaster.c</itemPath>
+        <itemPath>lib/CANopenNode/CO_SYNC.c</itemPath>
+        <itemPath>lib/CANopenNode/crc16-ccitt.c</itemPath>
+        <itemPath>lib/CANopenNode/eeprom.c</itemPath>
       </logicalFolder>
-      <itemPath>configuration_bits.c</itemPath>
-      <itemPath>exceptions.c</itemPath>
-      <itemPath>interrupts.c</itemPath>
-      <itemPath>main.c</itemPath>
-      <itemPath>system.c</itemPath>
-      <itemPath>user.c</itemPath>
+      <logicalFolder name="f2" displayName="core" projectFiles="true">
+        <itemPath>src/system.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="hardware" projectFiles="true">
+        <itemPath>src/SparkFun_VL6180X.c</itemPath>
+        <itemPath>src/MPU6050.c</itemPath>
+        <itemPath>src/I2Cdev.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="lib" projectFiles="true">
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>getting_started.txt</itemPath>
     <itemPath>legal_disclaimer.txt</itemPath>
     <itemPath>project_information.txt</itemPath>
+    <itemPath>getting_started.txt</itemPath>
   </logicalFolder>
   <sourceRootList>
-    <Elem>CANopenNode</Elem>
-    <Elem>C_Drivers</Elem>
+    <Elem>include</Elem>
+    <Elem>lib</Elem>
+    <Elem>src</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -212,7 +225,7 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
-        <property key="common-include-directories" value="CANopenNode/;C_Drivers"/>
+        <property key="common-include-directories" value="include/;lib/CANopenNode/"/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="false"/>
         <property key="relaxed-math" value="false"/>

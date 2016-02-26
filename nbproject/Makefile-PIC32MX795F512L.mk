@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=C_Drivers/MPU6050.c C_Drivers/SparkFun_VL6180X.c C_Drivers/I2Cdev.c CANopenNode/CANopen.c CANopenNode/CO_driver.c CANopenNode/CO_Emergency.c CANopenNode/CO_HBconsumer.c CANopenNode/CO_NMT_Heartbeat.c CANopenNode/CO_OD.c CANopenNode/CO_PDO.c CANopenNode/CO_SDO.c CANopenNode/CO_SDOmaster.c CANopenNode/CO_SYNC.c CANopenNode/crc16-ccitt.c CANopenNode/eeprom.c configuration_bits.c exceptions.c interrupts.c main.c system.c user.c
+SOURCEFILES_QUOTED_IF_SPACED=src/interrupts.c src/main.c src/exceptions.c src/user.c src/application.c lib/CANopenNode/CANopen.c lib/CANopenNode/CO_driver.c lib/CANopenNode/CO_Emergency.c lib/CANopenNode/CO_HBconsumer.c lib/CANopenNode/CO_NMT_Heartbeat.c lib/CANopenNode/CO_OD.c lib/CANopenNode/CO_PDO.c lib/CANopenNode/CO_SDO.c lib/CANopenNode/CO_SDOmaster.c lib/CANopenNode/CO_SYNC.c lib/CANopenNode/crc16-ccitt.c lib/CANopenNode/eeprom.c src/system.c src/SparkFun_VL6180X.c src/MPU6050.c src/I2Cdev.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/C_Drivers/MPU6050.o ${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o ${OBJECTDIR}/C_Drivers/I2Cdev.o ${OBJECTDIR}/CANopenNode/CANopen.o ${OBJECTDIR}/CANopenNode/CO_driver.o ${OBJECTDIR}/CANopenNode/CO_Emergency.o ${OBJECTDIR}/CANopenNode/CO_HBconsumer.o ${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o ${OBJECTDIR}/CANopenNode/CO_OD.o ${OBJECTDIR}/CANopenNode/CO_PDO.o ${OBJECTDIR}/CANopenNode/CO_SDO.o ${OBJECTDIR}/CANopenNode/CO_SDOmaster.o ${OBJECTDIR}/CANopenNode/CO_SYNC.o ${OBJECTDIR}/CANopenNode/crc16-ccitt.o ${OBJECTDIR}/CANopenNode/eeprom.o ${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/exceptions.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/user.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/C_Drivers/MPU6050.o.d ${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o.d ${OBJECTDIR}/C_Drivers/I2Cdev.o.d ${OBJECTDIR}/CANopenNode/CANopen.o.d ${OBJECTDIR}/CANopenNode/CO_driver.o.d ${OBJECTDIR}/CANopenNode/CO_Emergency.o.d ${OBJECTDIR}/CANopenNode/CO_HBconsumer.o.d ${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o.d ${OBJECTDIR}/CANopenNode/CO_OD.o.d ${OBJECTDIR}/CANopenNode/CO_PDO.o.d ${OBJECTDIR}/CANopenNode/CO_SDO.o.d ${OBJECTDIR}/CANopenNode/CO_SDOmaster.o.d ${OBJECTDIR}/CANopenNode/CO_SYNC.o.d ${OBJECTDIR}/CANopenNode/crc16-ccitt.o.d ${OBJECTDIR}/CANopenNode/eeprom.o.d ${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/exceptions.o.d ${OBJECTDIR}/interrupts.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/user.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/interrupts.o ${OBJECTDIR}/src/main.o ${OBJECTDIR}/src/exceptions.o ${OBJECTDIR}/src/user.o ${OBJECTDIR}/src/application.o ${OBJECTDIR}/lib/CANopenNode/CANopen.o ${OBJECTDIR}/lib/CANopenNode/CO_driver.o ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o ${OBJECTDIR}/lib/CANopenNode/CO_OD.o ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o ${OBJECTDIR}/lib/CANopenNode/eeprom.o ${OBJECTDIR}/src/system.o ${OBJECTDIR}/src/SparkFun_VL6180X.o ${OBJECTDIR}/src/MPU6050.o ${OBJECTDIR}/src/I2Cdev.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/src/interrupts.o.d ${OBJECTDIR}/src/main.o.d ${OBJECTDIR}/src/exceptions.o.d ${OBJECTDIR}/src/user.o.d ${OBJECTDIR}/src/application.o.d ${OBJECTDIR}/lib/CANopenNode/CANopen.o.d ${OBJECTDIR}/lib/CANopenNode/CO_driver.o.d ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o.d ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o.d ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o.d ${OBJECTDIR}/lib/CANopenNode/CO_OD.o.d ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o.d ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o.d ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o.d ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o.d ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o.d ${OBJECTDIR}/lib/CANopenNode/eeprom.o.d ${OBJECTDIR}/src/system.o.d ${OBJECTDIR}/src/SparkFun_VL6180X.o.d ${OBJECTDIR}/src/MPU6050.o.d ${OBJECTDIR}/src/I2Cdev.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/C_Drivers/MPU6050.o ${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o ${OBJECTDIR}/C_Drivers/I2Cdev.o ${OBJECTDIR}/CANopenNode/CANopen.o ${OBJECTDIR}/CANopenNode/CO_driver.o ${OBJECTDIR}/CANopenNode/CO_Emergency.o ${OBJECTDIR}/CANopenNode/CO_HBconsumer.o ${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o ${OBJECTDIR}/CANopenNode/CO_OD.o ${OBJECTDIR}/CANopenNode/CO_PDO.o ${OBJECTDIR}/CANopenNode/CO_SDO.o ${OBJECTDIR}/CANopenNode/CO_SDOmaster.o ${OBJECTDIR}/CANopenNode/CO_SYNC.o ${OBJECTDIR}/CANopenNode/crc16-ccitt.o ${OBJECTDIR}/CANopenNode/eeprom.o ${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/exceptions.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/user.o
+OBJECTFILES=${OBJECTDIR}/src/interrupts.o ${OBJECTDIR}/src/main.o ${OBJECTDIR}/src/exceptions.o ${OBJECTDIR}/src/user.o ${OBJECTDIR}/src/application.o ${OBJECTDIR}/lib/CANopenNode/CANopen.o ${OBJECTDIR}/lib/CANopenNode/CO_driver.o ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o ${OBJECTDIR}/lib/CANopenNode/CO_OD.o ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o ${OBJECTDIR}/lib/CANopenNode/eeprom.o ${OBJECTDIR}/src/system.o ${OBJECTDIR}/src/SparkFun_VL6180X.o ${OBJECTDIR}/src/MPU6050.o ${OBJECTDIR}/src/I2Cdev.o
 
 # Source Files
-SOURCEFILES=C_Drivers/MPU6050.c C_Drivers/SparkFun_VL6180X.c C_Drivers/I2Cdev.c CANopenNode/CANopen.c CANopenNode/CO_driver.c CANopenNode/CO_Emergency.c CANopenNode/CO_HBconsumer.c CANopenNode/CO_NMT_Heartbeat.c CANopenNode/CO_OD.c CANopenNode/CO_PDO.c CANopenNode/CO_SDO.c CANopenNode/CO_SDOmaster.c CANopenNode/CO_SYNC.c CANopenNode/crc16-ccitt.c CANopenNode/eeprom.c configuration_bits.c exceptions.c interrupts.c main.c system.c user.c
+SOURCEFILES=src/interrupts.c src/main.c src/exceptions.c src/user.c src/application.c lib/CANopenNode/CANopen.c lib/CANopenNode/CO_driver.c lib/CANopenNode/CO_Emergency.c lib/CANopenNode/CO_HBconsumer.c lib/CANopenNode/CO_NMT_Heartbeat.c lib/CANopenNode/CO_OD.c lib/CANopenNode/CO_PDO.c lib/CANopenNode/CO_SDO.c lib/CANopenNode/CO_SDOmaster.c lib/CANopenNode/CO_SYNC.c lib/CANopenNode/crc16-ccitt.c lib/CANopenNode/eeprom.c src/system.c src/SparkFun_VL6180X.c src/MPU6050.c src/I2Cdev.c
 
 
 CFLAGS=
@@ -94,258 +94,258 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/C_Drivers/MPU6050.o: C_Drivers/MPU6050.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/C_Drivers" 
-	@${RM} ${OBJECTDIR}/C_Drivers/MPU6050.o.d 
-	@${RM} ${OBJECTDIR}/C_Drivers/MPU6050.o 
-	@${FIXDEPS} "${OBJECTDIR}/C_Drivers/MPU6050.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/C_Drivers/MPU6050.o.d" -o ${OBJECTDIR}/C_Drivers/MPU6050.o C_Drivers/MPU6050.c     
+${OBJECTDIR}/src/interrupts.o: src/interrupts.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/interrupts.o.d 
+	@${RM} ${OBJECTDIR}/src/interrupts.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/interrupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/interrupts.o.d" -o ${OBJECTDIR}/src/interrupts.o src/interrupts.c     
 	
-${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o: C_Drivers/SparkFun_VL6180X.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/C_Drivers" 
-	@${RM} ${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o.d 
-	@${RM} ${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o 
-	@${FIXDEPS} "${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o.d" -o ${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o C_Drivers/SparkFun_VL6180X.c     
+${OBJECTDIR}/src/main.o: src/main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/main.o.d 
+	@${RM} ${OBJECTDIR}/src/main.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/main.o.d" -o ${OBJECTDIR}/src/main.o src/main.c     
 	
-${OBJECTDIR}/C_Drivers/I2Cdev.o: C_Drivers/I2Cdev.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/C_Drivers" 
-	@${RM} ${OBJECTDIR}/C_Drivers/I2Cdev.o.d 
-	@${RM} ${OBJECTDIR}/C_Drivers/I2Cdev.o 
-	@${FIXDEPS} "${OBJECTDIR}/C_Drivers/I2Cdev.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/C_Drivers/I2Cdev.o.d" -o ${OBJECTDIR}/C_Drivers/I2Cdev.o C_Drivers/I2Cdev.c     
+${OBJECTDIR}/src/exceptions.o: src/exceptions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/exceptions.o.d 
+	@${RM} ${OBJECTDIR}/src/exceptions.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/exceptions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/exceptions.o.d" -o ${OBJECTDIR}/src/exceptions.o src/exceptions.c     
 	
-${OBJECTDIR}/CANopenNode/CANopen.o: CANopenNode/CANopen.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CANopen.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CANopen.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CANopen.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CANopen.o.d" -o ${OBJECTDIR}/CANopenNode/CANopen.o CANopenNode/CANopen.c     
+${OBJECTDIR}/src/user.o: src/user.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/user.o.d 
+	@${RM} ${OBJECTDIR}/src/user.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/user.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/user.o.d" -o ${OBJECTDIR}/src/user.o src/user.c     
 	
-${OBJECTDIR}/CANopenNode/CO_driver.o: CANopenNode/CO_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_driver.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_driver.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_driver.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_driver.o.d" -o ${OBJECTDIR}/CANopenNode/CO_driver.o CANopenNode/CO_driver.c     
+${OBJECTDIR}/src/application.o: src/application.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/application.o.d 
+	@${RM} ${OBJECTDIR}/src/application.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/application.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/application.o.d" -o ${OBJECTDIR}/src/application.o src/application.c     
 	
-${OBJECTDIR}/CANopenNode/CO_Emergency.o: CANopenNode/CO_Emergency.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_Emergency.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_Emergency.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_Emergency.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_Emergency.o.d" -o ${OBJECTDIR}/CANopenNode/CO_Emergency.o CANopenNode/CO_Emergency.c     
+${OBJECTDIR}/lib/CANopenNode/CANopen.o: lib/CANopenNode/CANopen.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CANopen.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CANopen.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CANopen.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CANopen.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CANopen.o lib/CANopenNode/CANopen.c     
 	
-${OBJECTDIR}/CANopenNode/CO_HBconsumer.o: CANopenNode/CO_HBconsumer.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_HBconsumer.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_HBconsumer.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_HBconsumer.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_HBconsumer.o.d" -o ${OBJECTDIR}/CANopenNode/CO_HBconsumer.o CANopenNode/CO_HBconsumer.c     
+${OBJECTDIR}/lib/CANopenNode/CO_driver.o: lib/CANopenNode/CO_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_driver.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_driver.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_driver.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_driver.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_driver.o lib/CANopenNode/CO_driver.c     
 	
-${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o: CANopenNode/CO_NMT_Heartbeat.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o.d" -o ${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o CANopenNode/CO_NMT_Heartbeat.c     
+${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o: lib/CANopenNode/CO_Emergency.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o lib/CANopenNode/CO_Emergency.c     
 	
-${OBJECTDIR}/CANopenNode/CO_OD.o: CANopenNode/CO_OD.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_OD.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_OD.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_OD.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_OD.o.d" -o ${OBJECTDIR}/CANopenNode/CO_OD.o CANopenNode/CO_OD.c     
+${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o: lib/CANopenNode/CO_HBconsumer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o lib/CANopenNode/CO_HBconsumer.c     
 	
-${OBJECTDIR}/CANopenNode/CO_PDO.o: CANopenNode/CO_PDO.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_PDO.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_PDO.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_PDO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_PDO.o.d" -o ${OBJECTDIR}/CANopenNode/CO_PDO.o CANopenNode/CO_PDO.c     
+${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o: lib/CANopenNode/CO_NMT_Heartbeat.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o lib/CANopenNode/CO_NMT_Heartbeat.c     
 	
-${OBJECTDIR}/CANopenNode/CO_SDO.o: CANopenNode/CO_SDO.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SDO.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SDO.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_SDO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_SDO.o.d" -o ${OBJECTDIR}/CANopenNode/CO_SDO.o CANopenNode/CO_SDO.c     
+${OBJECTDIR}/lib/CANopenNode/CO_OD.o: lib/CANopenNode/CO_OD.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_OD.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_OD.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_OD.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_OD.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_OD.o lib/CANopenNode/CO_OD.c     
 	
-${OBJECTDIR}/CANopenNode/CO_SDOmaster.o: CANopenNode/CO_SDOmaster.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SDOmaster.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SDOmaster.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_SDOmaster.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_SDOmaster.o.d" -o ${OBJECTDIR}/CANopenNode/CO_SDOmaster.o CANopenNode/CO_SDOmaster.c     
+${OBJECTDIR}/lib/CANopenNode/CO_PDO.o: lib/CANopenNode/CO_PDO.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_PDO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_PDO.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o lib/CANopenNode/CO_PDO.c     
 	
-${OBJECTDIR}/CANopenNode/CO_SYNC.o: CANopenNode/CO_SYNC.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SYNC.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SYNC.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_SYNC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_SYNC.o.d" -o ${OBJECTDIR}/CANopenNode/CO_SYNC.o CANopenNode/CO_SYNC.c     
+${OBJECTDIR}/lib/CANopenNode/CO_SDO.o: lib/CANopenNode/CO_SDO.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_SDO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_SDO.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o lib/CANopenNode/CO_SDO.c     
 	
-${OBJECTDIR}/CANopenNode/crc16-ccitt.o: CANopenNode/crc16-ccitt.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/crc16-ccitt.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/crc16-ccitt.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/crc16-ccitt.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/crc16-ccitt.o.d" -o ${OBJECTDIR}/CANopenNode/crc16-ccitt.o CANopenNode/crc16-ccitt.c     
+${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o: lib/CANopenNode/CO_SDOmaster.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o lib/CANopenNode/CO_SDOmaster.c     
 	
-${OBJECTDIR}/CANopenNode/eeprom.o: CANopenNode/eeprom.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/eeprom.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/eeprom.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/eeprom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/eeprom.o.d" -o ${OBJECTDIR}/CANopenNode/eeprom.o CANopenNode/eeprom.c     
+${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o: lib/CANopenNode/CO_SYNC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o lib/CANopenNode/CO_SYNC.c     
 	
-${OBJECTDIR}/configuration_bits.o: configuration_bits.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/configuration_bits.o.d 
-	@${RM} ${OBJECTDIR}/configuration_bits.o 
-	@${FIXDEPS} "${OBJECTDIR}/configuration_bits.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/configuration_bits.o.d" -o ${OBJECTDIR}/configuration_bits.o configuration_bits.c     
+${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o: lib/CANopenNode/crc16-ccitt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o.d" -o ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o lib/CANopenNode/crc16-ccitt.c     
 	
-${OBJECTDIR}/exceptions.o: exceptions.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/exceptions.o.d 
-	@${RM} ${OBJECTDIR}/exceptions.o 
-	@${FIXDEPS} "${OBJECTDIR}/exceptions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/exceptions.o.d" -o ${OBJECTDIR}/exceptions.o exceptions.c     
+${OBJECTDIR}/lib/CANopenNode/eeprom.o: lib/CANopenNode/eeprom.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/eeprom.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/eeprom.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/eeprom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/eeprom.o.d" -o ${OBJECTDIR}/lib/CANopenNode/eeprom.o lib/CANopenNode/eeprom.c     
 	
-${OBJECTDIR}/interrupts.o: interrupts.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/interrupts.o.d 
-	@${RM} ${OBJECTDIR}/interrupts.o 
-	@${FIXDEPS} "${OBJECTDIR}/interrupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/interrupts.o.d" -o ${OBJECTDIR}/interrupts.o interrupts.c     
+${OBJECTDIR}/src/system.o: src/system.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/system.o.d 
+	@${RM} ${OBJECTDIR}/src/system.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/system.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/system.o.d" -o ${OBJECTDIR}/src/system.o src/system.c     
 	
-${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.o.d 
-	@${RM} ${OBJECTDIR}/main.o 
-	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c     
+${OBJECTDIR}/src/SparkFun_VL6180X.o: src/SparkFun_VL6180X.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/SparkFun_VL6180X.o.d 
+	@${RM} ${OBJECTDIR}/src/SparkFun_VL6180X.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/SparkFun_VL6180X.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/SparkFun_VL6180X.o.d" -o ${OBJECTDIR}/src/SparkFun_VL6180X.o src/SparkFun_VL6180X.c     
 	
-${OBJECTDIR}/system.o: system.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/system.o.d 
-	@${RM} ${OBJECTDIR}/system.o 
-	@${FIXDEPS} "${OBJECTDIR}/system.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/system.o.d" -o ${OBJECTDIR}/system.o system.c     
+${OBJECTDIR}/src/MPU6050.o: src/MPU6050.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/MPU6050.o.d 
+	@${RM} ${OBJECTDIR}/src/MPU6050.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/MPU6050.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/MPU6050.o.d" -o ${OBJECTDIR}/src/MPU6050.o src/MPU6050.c     
 	
-${OBJECTDIR}/user.o: user.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/user.o.d 
-	@${RM} ${OBJECTDIR}/user.o 
-	@${FIXDEPS} "${OBJECTDIR}/user.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/user.o.d" -o ${OBJECTDIR}/user.o user.c     
+${OBJECTDIR}/src/I2Cdev.o: src/I2Cdev.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/I2Cdev.o.d 
+	@${RM} ${OBJECTDIR}/src/I2Cdev.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/I2Cdev.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/I2Cdev.o.d" -o ${OBJECTDIR}/src/I2Cdev.o src/I2Cdev.c     
 	
 else
-${OBJECTDIR}/C_Drivers/MPU6050.o: C_Drivers/MPU6050.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/C_Drivers" 
-	@${RM} ${OBJECTDIR}/C_Drivers/MPU6050.o.d 
-	@${RM} ${OBJECTDIR}/C_Drivers/MPU6050.o 
-	@${FIXDEPS} "${OBJECTDIR}/C_Drivers/MPU6050.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/C_Drivers/MPU6050.o.d" -o ${OBJECTDIR}/C_Drivers/MPU6050.o C_Drivers/MPU6050.c     
+${OBJECTDIR}/src/interrupts.o: src/interrupts.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/interrupts.o.d 
+	@${RM} ${OBJECTDIR}/src/interrupts.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/interrupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/interrupts.o.d" -o ${OBJECTDIR}/src/interrupts.o src/interrupts.c     
 	
-${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o: C_Drivers/SparkFun_VL6180X.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/C_Drivers" 
-	@${RM} ${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o.d 
-	@${RM} ${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o 
-	@${FIXDEPS} "${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o.d" -o ${OBJECTDIR}/C_Drivers/SparkFun_VL6180X.o C_Drivers/SparkFun_VL6180X.c     
+${OBJECTDIR}/src/main.o: src/main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/main.o.d 
+	@${RM} ${OBJECTDIR}/src/main.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/main.o.d" -o ${OBJECTDIR}/src/main.o src/main.c     
 	
-${OBJECTDIR}/C_Drivers/I2Cdev.o: C_Drivers/I2Cdev.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/C_Drivers" 
-	@${RM} ${OBJECTDIR}/C_Drivers/I2Cdev.o.d 
-	@${RM} ${OBJECTDIR}/C_Drivers/I2Cdev.o 
-	@${FIXDEPS} "${OBJECTDIR}/C_Drivers/I2Cdev.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/C_Drivers/I2Cdev.o.d" -o ${OBJECTDIR}/C_Drivers/I2Cdev.o C_Drivers/I2Cdev.c     
+${OBJECTDIR}/src/exceptions.o: src/exceptions.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/exceptions.o.d 
+	@${RM} ${OBJECTDIR}/src/exceptions.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/exceptions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/exceptions.o.d" -o ${OBJECTDIR}/src/exceptions.o src/exceptions.c     
 	
-${OBJECTDIR}/CANopenNode/CANopen.o: CANopenNode/CANopen.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CANopen.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CANopen.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CANopen.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CANopen.o.d" -o ${OBJECTDIR}/CANopenNode/CANopen.o CANopenNode/CANopen.c     
+${OBJECTDIR}/src/user.o: src/user.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/user.o.d 
+	@${RM} ${OBJECTDIR}/src/user.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/user.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/user.o.d" -o ${OBJECTDIR}/src/user.o src/user.c     
 	
-${OBJECTDIR}/CANopenNode/CO_driver.o: CANopenNode/CO_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_driver.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_driver.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_driver.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_driver.o.d" -o ${OBJECTDIR}/CANopenNode/CO_driver.o CANopenNode/CO_driver.c     
+${OBJECTDIR}/src/application.o: src/application.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/application.o.d 
+	@${RM} ${OBJECTDIR}/src/application.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/application.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/application.o.d" -o ${OBJECTDIR}/src/application.o src/application.c     
 	
-${OBJECTDIR}/CANopenNode/CO_Emergency.o: CANopenNode/CO_Emergency.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_Emergency.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_Emergency.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_Emergency.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_Emergency.o.d" -o ${OBJECTDIR}/CANopenNode/CO_Emergency.o CANopenNode/CO_Emergency.c     
+${OBJECTDIR}/lib/CANopenNode/CANopen.o: lib/CANopenNode/CANopen.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CANopen.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CANopen.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CANopen.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CANopen.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CANopen.o lib/CANopenNode/CANopen.c     
 	
-${OBJECTDIR}/CANopenNode/CO_HBconsumer.o: CANopenNode/CO_HBconsumer.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_HBconsumer.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_HBconsumer.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_HBconsumer.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_HBconsumer.o.d" -o ${OBJECTDIR}/CANopenNode/CO_HBconsumer.o CANopenNode/CO_HBconsumer.c     
+${OBJECTDIR}/lib/CANopenNode/CO_driver.o: lib/CANopenNode/CO_driver.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_driver.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_driver.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_driver.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_driver.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_driver.o lib/CANopenNode/CO_driver.c     
 	
-${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o: CANopenNode/CO_NMT_Heartbeat.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o.d" -o ${OBJECTDIR}/CANopenNode/CO_NMT_Heartbeat.o CANopenNode/CO_NMT_Heartbeat.c     
+${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o: lib/CANopenNode/CO_Emergency.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o lib/CANopenNode/CO_Emergency.c     
 	
-${OBJECTDIR}/CANopenNode/CO_OD.o: CANopenNode/CO_OD.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_OD.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_OD.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_OD.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_OD.o.d" -o ${OBJECTDIR}/CANopenNode/CO_OD.o CANopenNode/CO_OD.c     
+${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o: lib/CANopenNode/CO_HBconsumer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o lib/CANopenNode/CO_HBconsumer.c     
 	
-${OBJECTDIR}/CANopenNode/CO_PDO.o: CANopenNode/CO_PDO.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_PDO.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_PDO.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_PDO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_PDO.o.d" -o ${OBJECTDIR}/CANopenNode/CO_PDO.o CANopenNode/CO_PDO.c     
+${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o: lib/CANopenNode/CO_NMT_Heartbeat.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o lib/CANopenNode/CO_NMT_Heartbeat.c     
 	
-${OBJECTDIR}/CANopenNode/CO_SDO.o: CANopenNode/CO_SDO.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SDO.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SDO.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_SDO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_SDO.o.d" -o ${OBJECTDIR}/CANopenNode/CO_SDO.o CANopenNode/CO_SDO.c     
+${OBJECTDIR}/lib/CANopenNode/CO_OD.o: lib/CANopenNode/CO_OD.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_OD.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_OD.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_OD.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_OD.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_OD.o lib/CANopenNode/CO_OD.c     
 	
-${OBJECTDIR}/CANopenNode/CO_SDOmaster.o: CANopenNode/CO_SDOmaster.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SDOmaster.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SDOmaster.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_SDOmaster.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_SDOmaster.o.d" -o ${OBJECTDIR}/CANopenNode/CO_SDOmaster.o CANopenNode/CO_SDOmaster.c     
+${OBJECTDIR}/lib/CANopenNode/CO_PDO.o: lib/CANopenNode/CO_PDO.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_PDO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_PDO.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o lib/CANopenNode/CO_PDO.c     
 	
-${OBJECTDIR}/CANopenNode/CO_SYNC.o: CANopenNode/CO_SYNC.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SYNC.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/CO_SYNC.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/CO_SYNC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/CO_SYNC.o.d" -o ${OBJECTDIR}/CANopenNode/CO_SYNC.o CANopenNode/CO_SYNC.c     
+${OBJECTDIR}/lib/CANopenNode/CO_SDO.o: lib/CANopenNode/CO_SDO.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_SDO.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_SDO.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o lib/CANopenNode/CO_SDO.c     
 	
-${OBJECTDIR}/CANopenNode/crc16-ccitt.o: CANopenNode/crc16-ccitt.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/crc16-ccitt.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/crc16-ccitt.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/crc16-ccitt.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/crc16-ccitt.o.d" -o ${OBJECTDIR}/CANopenNode/crc16-ccitt.o CANopenNode/crc16-ccitt.c     
+${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o: lib/CANopenNode/CO_SDOmaster.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o lib/CANopenNode/CO_SDOmaster.c     
 	
-${OBJECTDIR}/CANopenNode/eeprom.o: CANopenNode/eeprom.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/CANopenNode" 
-	@${RM} ${OBJECTDIR}/CANopenNode/eeprom.o.d 
-	@${RM} ${OBJECTDIR}/CANopenNode/eeprom.o 
-	@${FIXDEPS} "${OBJECTDIR}/CANopenNode/eeprom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/CANopenNode/eeprom.o.d" -o ${OBJECTDIR}/CANopenNode/eeprom.o CANopenNode/eeprom.c     
+${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o: lib/CANopenNode/CO_SYNC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o.d" -o ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o lib/CANopenNode/CO_SYNC.c     
 	
-${OBJECTDIR}/configuration_bits.o: configuration_bits.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/configuration_bits.o.d 
-	@${RM} ${OBJECTDIR}/configuration_bits.o 
-	@${FIXDEPS} "${OBJECTDIR}/configuration_bits.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/configuration_bits.o.d" -o ${OBJECTDIR}/configuration_bits.o configuration_bits.c     
+${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o: lib/CANopenNode/crc16-ccitt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o.d" -o ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o lib/CANopenNode/crc16-ccitt.c     
 	
-${OBJECTDIR}/exceptions.o: exceptions.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/exceptions.o.d 
-	@${RM} ${OBJECTDIR}/exceptions.o 
-	@${FIXDEPS} "${OBJECTDIR}/exceptions.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/exceptions.o.d" -o ${OBJECTDIR}/exceptions.o exceptions.c     
+${OBJECTDIR}/lib/CANopenNode/eeprom.o: lib/CANopenNode/eeprom.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/lib/CANopenNode" 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/eeprom.o.d 
+	@${RM} ${OBJECTDIR}/lib/CANopenNode/eeprom.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/CANopenNode/eeprom.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/lib/CANopenNode/eeprom.o.d" -o ${OBJECTDIR}/lib/CANopenNode/eeprom.o lib/CANopenNode/eeprom.c     
 	
-${OBJECTDIR}/interrupts.o: interrupts.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/interrupts.o.d 
-	@${RM} ${OBJECTDIR}/interrupts.o 
-	@${FIXDEPS} "${OBJECTDIR}/interrupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/interrupts.o.d" -o ${OBJECTDIR}/interrupts.o interrupts.c     
+${OBJECTDIR}/src/system.o: src/system.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/system.o.d 
+	@${RM} ${OBJECTDIR}/src/system.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/system.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/system.o.d" -o ${OBJECTDIR}/src/system.o src/system.c     
 	
-${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.o.d 
-	@${RM} ${OBJECTDIR}/main.o 
-	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c     
+${OBJECTDIR}/src/SparkFun_VL6180X.o: src/SparkFun_VL6180X.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/SparkFun_VL6180X.o.d 
+	@${RM} ${OBJECTDIR}/src/SparkFun_VL6180X.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/SparkFun_VL6180X.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/SparkFun_VL6180X.o.d" -o ${OBJECTDIR}/src/SparkFun_VL6180X.o src/SparkFun_VL6180X.c     
 	
-${OBJECTDIR}/system.o: system.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/system.o.d 
-	@${RM} ${OBJECTDIR}/system.o 
-	@${FIXDEPS} "${OBJECTDIR}/system.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/system.o.d" -o ${OBJECTDIR}/system.o system.c     
+${OBJECTDIR}/src/MPU6050.o: src/MPU6050.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/MPU6050.o.d 
+	@${RM} ${OBJECTDIR}/src/MPU6050.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/MPU6050.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/MPU6050.o.d" -o ${OBJECTDIR}/src/MPU6050.o src/MPU6050.c     
 	
-${OBJECTDIR}/user.o: user.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/user.o.d 
-	@${RM} ${OBJECTDIR}/user.o 
-	@${FIXDEPS} "${OBJECTDIR}/user.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"CANopenNode/" -I"C_Drivers" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/user.o.d" -o ${OBJECTDIR}/user.o user.c     
+${OBJECTDIR}/src/I2Cdev.o: src/I2Cdev.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/I2Cdev.o.d 
+	@${RM} ${OBJECTDIR}/src/I2Cdev.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/I2Cdev.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/I2Cdev.o.d" -o ${OBJECTDIR}/src/I2Cdev.o src/I2Cdev.c     
 	
 endif
 
