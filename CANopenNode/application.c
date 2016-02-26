@@ -57,10 +57,11 @@
 
 #include "CANopen.h"
 #include <xc.h>
-#include <plib.h>
+//#include <plib.h>
 #include <stdint.h>         /* For UINT32 definition                          */
 #include <stdbool.h>        /* For true/false definition                      */
 #include <MPU6050.h>
+#include "application.h"
 
 /* Global variables */
 
@@ -97,7 +98,7 @@ CO_SDO_abortCode_t ODF_testDomain(CO_ODF_arg_t *ODF_arg);
 //Delay function for y'all
 void delayzz(void) {
 	int i, j;
-	for(i=0;i<5000;i++)
+	for(i=0;i<50000;i++)
 	{
 		for(j=0;j<2;j++) 
 		{
@@ -109,20 +110,25 @@ void delayzz(void) {
 /******************************************************************************/
 void programStart(void){
 
-    /* Initialize two CAN led diodes */
-    #define CAN_RUN_LED        LATAbits.LATA0
-    #define CAN_ERROR_LED      LATAbits.LATA1
-    TRISAbits.TRISA0 = 0;
-    TRISAbits.TRISA1 = 0;
-    CAN_RUN_LED = 0;      CAN_ERROR_LED = 1;
+    /* Initialize three CAN LEDs */
+    CAN_RUN_LED_DIR = 0;
+    CAN_STATUS_LED_DIR = 0;
+    CAN_ERROR_LED_DIR = 0;
+    CAN_RUN_LED = 0;
+    CAN_STATUS_LED = 0;
+    CAN_ERROR_LED = 1;
 
-    /* Initialize other LED diodes for RPDO */
-    TRISAbits.TRISA2 = 0; LATAbits.LATA2 = 0;
-    TRISAbits.TRISA3 = 0; LATAbits.LATA3 = 0;
-    TRISAbits.TRISA4 = 0; LATAbits.LATA4 = 0;
-    TRISAbits.TRISA5 = 0; LATAbits.LATA5 = 0;
-    TRISAbits.TRISA6 = 0; LATAbits.LATA6 = 0;
-    TRISAbits.TRISA7 = 0; LATAbits.LATA7 = 0;
+    /* Initialize other LED for RPDO */
+    CAN_RPD0_LED0_DIR = 0; CAN_RPD0_LED0 = 0;
+    CAN_RPD0_LED1_DIR = 0; CAN_RPD0_LED1 = 0;
+    CAN_RPD0_LED2_DIR = 0; CAN_RPD0_LED2 = 0;
+    CAN_RPD0_LED3_DIR = 0; CAN_RPD0_LED3 = 0;
+    CAN_RPD0_LED4_DIR = 0; CAN_RPD0_LED4 = 0;
+    CAN_RPD0_LED5_DIR = 0; CAN_RPD0_LED5 = 0;
+    
+    /* Initialize two CAN buttons */
+    CAN_BUTTON0_DIR = 1;
+    CAN_BUTTON1_DIR = 1;
     
     init_I2C(); //Start I2C
         
@@ -156,7 +162,7 @@ void programEnd(void){
 }
 
 void ledChange(void) {
-    LATAbits.LATA3 ^= 1;
+    CAN_STATUS_LED ^= 1;
     delayzz();
     delayzz();
     delayzz();
@@ -180,8 +186,8 @@ void programAsync(uint16_t timer1msDiff){
 
     /* Is any application critical error set? */
     /* If error register is set, device will leave operational state. */
-    /* if(CO->em->errorStatusBits[8] || CO->em->errorStatusBits[9])
-        *CO->emPr->errorRegister |= 0x20; */
+    if(CO->em->errorStatusBits[8] || CO->em->errorStatusBits[9])
+        *CO->emPr->errorRegister |= 0x20;
     
     /* uint8_t value = getDistance();
     
@@ -209,12 +215,12 @@ void program1ms(void){
 
     /* Read RPDO and show it on LEDS on Explorer16. */
     leds = OD_writeOutput8Bit[0];
-    LATAbits.LATA2 = (leds&0x04) ? 1 : 0;
-    //LATAbits.LATA3 = (leds&0x08) ? 1 : 0;
-    LATAbits.LATA4 = (leds&0x10) ? 1 : 0;
-    LATAbits.LATA5 = (leds&0x20) ? 1 : 0;
-    LATAbits.LATA6 = (leds&0x40) ? 1 : 0;
-    LATAbits.LATA7 = (leds&0x80) ? 1 : 0;
+    CAN_RPD0_LED0 = (leds&0x04) ? 1 : 0;
+    CAN_RPD0_LED1 = (leds&0x08) ? 1 : 0;
+    CAN_RPD0_LED2 = (leds&0x10) ? 1 : 0;
+    CAN_RPD0_LED3 = (leds&0x20) ? 1 : 0;
+    CAN_RPD0_LED4 = (leds&0x40) ? 1 : 0;
+    CAN_RPD0_LED5 = (leds&0x80) ? 1 : 0;
 
 
     /* Verify operating state of this node */
@@ -224,8 +230,8 @@ void program1ms(void){
     /* LATAbits.LATA3 = (CO->HBcons->allMonitoredOperational) ? 1 : 0; */
 
     /* Example error is simulated from buttons on Explorer16 */
-    if(!PORTDbits.RD6) CO_errorReport(CO->em, CO_EMA_TEST1_INFORMATIVE, CO_EMC_GENERIC, 0x12345678L);
-    if(!PORTDbits.RD7) CO_errorReset(CO->em, CO_EMA_TEST1_INFORMATIVE, 0xAAAAAABBL);
+    if(!CAN_BUTTON0) CO_errorReport(CO->em, CO_EMA_TEST1_INFORMATIVE, CO_EMC_GENERIC, 0x12345678L);
+    if(!CAN_BUTTON1) CO_errorReset(CO->em, CO_EMA_TEST1_INFORMATIVE, 0xAAAAAABBL);
     
     
 #if 0
@@ -251,8 +257,8 @@ void program1ms(void){
     /* According to PDO mapping and communication parameters, first TPDO is sent */
     /* automatically on change of state of OD_readInput8Bit[0] variable. */
     buttons = 0;
-    if(!PORTDbits.RD6)  buttons |= 0x08;
-    if(!PORTDbits.RD7)  buttons |= 0x04;
+    if(!CAN_BUTTON0)  buttons |= 0x08;
+    if(!CAN_BUTTON1)  buttons |= 0x04;
     if(!PORTDbits.RD13) buttons |= 0x01;
     OD_readInput8Bit[0] = buttons;
 }
