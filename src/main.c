@@ -1,64 +1,31 @@
 /******************************************************************************/
 /*  Files to Include                                                          */
 /******************************************************************************/
-#ifdef __XC32
-    #include <xc.h>          /* Defines special funciton registers, CP0 regs  */
-#endif
-
-#include <plib.h>           /* Include to use PIC32 peripheral libraries      */
+#include <xc.h>          /* Defines special funciton registers, CP0 regs  */
 #include <stdint.h>         /* For uint32_t definition                        */
 #include <stdbool.h>        /* For true/false definition                      */
+#include <sys/attribs.h>        /* for interrupts */
 
-#include "system.h"         /* System funct/params, like osc/periph config    */
-#include "user.h"           /* User funct/params, such as InitApp             */
+#include "configuration_bits.h"
+#include "main.h"
+#include "system.h"
+#include "user.h"
 
 /* Code added by njaunich */
 #include "application.h"
-#include "configuration_bits.h"
-//#define CO_FSYS     80000      /* (80MHz Quartz used) */
-//#define CO_PBCLK    40000//(CO_FSYS / (1<<OSCCONbits.PBDIV))     /* peripheral bus clock */
 #define CO_NO_CAN_MODULES 1
 #include "CANopen.h"
-
-#ifdef USE_EEPROM
-    #include "eeprom.h"            /* 25LC128 eeprom chip connected to SPI2A port. */
-#endif
-
-#include <sys/attribs.h>        /* for interrupts */
-
-/* macros */
-    #define CO_TMR_TMR          TMR2             /* TMR register */
-    #define CO_TMR_PR           PR2              /* Period register */
-    #define CO_TMR_CON          T2CON            /* Control register */
-    #define CO_TMR_ISR_FLAG     IFS0bits.T2IF    /* Interrupt Flag bit */
-    #define CO_TMR_ISR_PRIORITY IPC2bits.T2IP    /* Interrupt Priority */
-    #define CO_TMR_ISR_ENABLE   IEC0bits.T2IE    /* Interrupt Enable bit */
-
-    #define CO_CAN_ISR() void __ISR(_CAN_1_VECTOR, IPL5SOFT) CO_CAN1InterruptHandler(void)
-    #define CO_CAN_ISR_FLAG     IFS1bits.CAN1IF  /* Interrupt Flag bit */
-    #define CO_CAN_ISR_PRIORITY IPC11bits.CAN1IP /* Interrupt Priority */
-    #define CO_CAN_ISR_ENABLE   IEC1bits.CAN1IE  /* Interrupt Enable bit */
-
-    #define CO_CAN_ISR2() void __ISR(_CAN_2_VECTOR, IPL5SOFT) CO_CAN2InterruptHandler(void)
-    #define CO_CAN_ISR2_FLAG     IFS1bits.CAN2IF  /* Interrupt Flag bit */
-    #define CO_CAN_ISR2_PRIORITY IPC11bits.CAN2IP /* Interrupt Priority */
-    #define CO_CAN_ISR2_ENABLE   IEC1bits.CAN2IE  /* Interrupt Enable bit */
-
-    #define CO_clearWDT() (WDTCONSET = _WDTCON_WDTCLR_MASK)
 
 /* Global variables and objects */
     volatile uint16_t CO_timer1ms = 0U; /* variable increments each millisecond */
     const CO_CANbitRateData_t   CO_CANbitRateData[8] = {CO_CANbitRateDataInitializers};
-#ifdef USE_EEPROM
-    CO_EE_t                     CO_EEO;         /* Eeprom object */
-#endif
 
 /******************************************************************************/
 /* Global Variable Declaration                                                */
 /******************************************************************************/
 
 /* i.e. uint32_t <variable_name>; */
-
+    
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
@@ -73,66 +40,35 @@ void CANrx_lockCbSync(bool_t syncReceived) {
 
 int32_t main(void)
 {
-
-#ifndef PIC32_STARTER_KIT
-    /*The JTAG is on by default on POR.  A PIC32 Starter Kit uses the JTAG, but
-    for other debug tool use, like ICD 3 and Real ICE, the JTAG should be off
-    to free up the JTAG I/O */
-    DDPCONbits.JTAGEN = 0;
-#endif
-
-    /*Refer to the C32 peripheral library documentation for more
-    information on the SYTEMConfig function.
     
-    This function sets the PB divider, the Flash Wait States, and the DRM
-    /wait states to the optimum value.  It also enables the cacheability for
-    the K0 segment.  It could has side effects of possibly alter the pre-fetch
-    buffer and cache.  It sets the RAM wait states to 0.  Other than
-    the SYS_FREQ, this takes these parameters.  The top 3 may be '|'ed
-    together:
+    /* Don't touch this! Ideally, this function should not change
+     * when programming each specific module of the pod. This 
+     * function should be the same for everyone. - Steve*/
+
+    /* TODO Add user clock/system configuration code if appropriate. 
+     * sys_freq and pb_clk added for verification of speeds when
+     * debugging. Can be removed later! - Steve */
+    //unsigned int sys_freq = SYS_FREQ;
+    //unsigned int pb_clk = SYSTEMConfigPerformance(SYS_FREQ);
+    INTCONbits.MVEC = 1; // Multi-vector mode
+    DDPCONbits.JTAGEN = 0; // Disable JTAG (Not used by us!)
+    DDPCONbits.TROEN = 0; // Disable Trace
     
-    SYS_CFG_WAIT_STATES (configures flash wait states from system clock)
-    SYS_CFG_PB_BUS (configures the PB bus from the system clock)
-    SYS_CFG_PCACHE (configures the pCache if used)
-    SYS_CFG_ALL (configures the flash wait states, PB bus, and pCache)*/
-
-    /* TODO Add user clock/system configuration code if appropriate.  */
-    SYSTEMConfig(SYS_FREQ, SYS_CFG_ALL); 
-
     /* Initialize I/O and Peripherals for application */
     InitApp();
-
-    /*Configure Multivector Interrupt Mode.  Using Single Vector Mode
-    is expensive from a timing perspective, so most applications
-    should probably not use a Single Vector Mode*/
-    INTConfigureSystem(INT_SYSTEM_CONFIG_MULT_VECTOR);
 
     /* Below is code added by njaunich */
     unsigned int temp_ui;
     CO_NMT_reset_cmd_t reset = CO_RESET_NOT;
     
-    INTCONbits.MVEC = 1;
     __builtin_enable_interrupts();
 
-    /* Disable JTAG and trace port */
-    DDPCONbits.JTAGEN = 0;
-    DDPCONbits.TROEN = 0;
-    
     /* Verify, if OD structures have proper alignment of initial values */
     if(CO_OD_RAM.FirstWord != CO_OD_RAM.LastWord) while(1) CO_clearWDT();
     if(CO_OD_EEPROM.FirstWord != CO_OD_EEPROM.LastWord) while(1) CO_clearWDT();
     if(CO_OD_ROM.FirstWord != CO_OD_ROM.LastWord) while(1) CO_clearWDT();
-    
-    #ifdef USE_EEPROM
-    CO_ReturnError_t eeStatus = CO_EE_init_1(&CO_EEO, (uint8_t*) &CO_OD_EEPROM, sizeof(CO_OD_EEPROM),
-                            (uint8_t*) &CO_OD_ROM, sizeof(CO_OD_ROM));
-    #endif
 
     programStart();
-    
-    /* increase variable each startup. Variable is stored in eeprom. */
-    OD_powerOnCounter++;
-
 
     while(reset != CO_RESET_APP){
 /* CANopen communication reset - initialize CANopen objects *******************/
@@ -157,13 +93,6 @@ int32_t main(void)
             while(1) CO_clearWDT();
             /* CO_errorReport(CO->em, CO_EM_MEMORY_ALLOCATION_ERROR, CO_EMC_SOFTWARE_INTERNAL, err); */
         }
-        
-
-        /* initialize eeprom - part 2 */
-#ifdef USE_EEPROM
-        CO_EE_init_2(&CO_EEO, eeStatus, CO->SDO[0], CO->em);
-#endif
-        
 
         /* Configure callback functions */
         CO_SYNC_initCallback(CO->SYNC, CANrx_lockCbSync);
@@ -317,9 +246,11 @@ void __ISR(_TIMER_2_VECTOR, IPL3SOFT) CO_TimerInterruptHandler(void){
 /* CAN interrupt function *****************************************************/
 CO_CAN_ISR(){
     CO_CANinterrupt(CO->CANmodule[0]);
+
     /* Clear combined Interrupt flag */
     CO_CAN_ISR_FLAG = 0;
 }
+
 
 #if CO_NO_CAN_MODULES >= 2
 CO_CAN_ISR2(){

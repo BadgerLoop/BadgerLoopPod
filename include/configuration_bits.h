@@ -17,30 +17,30 @@
 
 /* TODO Fill in your configuration bits from the config bits generator here.  */
 
-    #pragma config FNOSC    = PRIPLL                        // Oscillator Selection
-    #pragma config POSCMOD  = XT     //HS                       // Primary Oscillator
-    #pragma config FPLLIDIV = DIV_2                         // PLL input divider
-    #pragma config FPLLMUL  = MUL_16 //20                        // PLL multiplier
-    #pragma config FPLLODIV = DIV_1                        // PLL output divider
-    #pragma config FPBDIV   = DIV_2                         // Peripheral bus clock divider
-    #pragma config FSOSCEN  = OFF                           // Secondary Oscillator Enable
+#pragma config FNOSC    = PRIPLL                        // Oscillator Selection
+#pragma config POSCMOD  = XT //HS                       // Primary Oscillator
+#pragma config FPLLIDIV = DIV_2                         // PLL input divider
+#pragma config FPLLMUL  = MUL_20 //MUL_16               // PLL multiplier
+#pragma config FPLLODIV = DIV_1                         // PLL output divider
+#pragma config FPBDIV   = DIV_2                         // Peripheral bus clock divider
+#pragma config FSOSCEN  = OFF                           // Secondary Oscillator Enable
 
-    //*    Clock control settings
-    #pragma config IESO     = OFF   //ON                         // Internal/External Switch-over
-    #pragma config FCKSM    = CSDCMD                        // Clock Switching & Fail Safe Clock Monitor
-    #pragma config OSCIOFNC = OFF                           // CLKO Enable
+//*    Clock control settings
+#pragma config IESO     = OFF   //ON                         // Internal/External Switch-over
+#pragma config FCKSM    = CSDCMD                        // Clock Switching & Fail Safe Clock Monitor
+#pragma config OSCIOFNC = OFF                           // CLKO Enable
 
-    //*    Other Peripheral Device settings
-    #pragma config FWDTEN   = OFF                           // Watchdog Timer
-    #pragma config WDTPS    = PS1024                        // Watchdog Timer Postscale
+//*    Other Peripheral Device settings
+#pragma config FWDTEN   = OFF                           // Watchdog Timer
+#pragma config WDTPS    = PS1024                        // Watchdog Timer Postscale
 
-    //*    Code Protection settings
-    #pragma config CP       = OFF                           // Code Protect
-    #pragma config BWP      = OFF                           // Boot Flash Write Protect
-    #pragma config PWP      = OFF                           // Program Flash Write Protect
+//*    Code Protection settings
+#pragma config CP       = OFF                           // Code Protect
+#pragma config BWP      = OFF                           // Boot Flash Write Protect
+#pragma config PWP      = OFF                           // Program Flash Write Protect
 
-    //*    Debug settings
-    #pragma config ICESEL   = ICS_PGx2                      // ICE/ICD Comm Channel Select
-    #pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
+//*    Debug settings
+#pragma config ICESEL   = ICS_PGx2                      // ICE/ICD Comm Channel Select
+#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
-    #pragma config FCANIO = OFF //Nick: Alternate CAN Pins
+#pragma config FCANIO = OFF //Nick: Alternate CAN Pins

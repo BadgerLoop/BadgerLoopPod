@@ -37,7 +37,8 @@ THE SOFTWARE.
 #include <xc.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include <plib.h>
+//#include <plib.h>
+#include <peripheral/i2c.h>
 
 UINT8               i2cData[10];
 I2C_7_BIT_ADDRESS   SlaveAddress;

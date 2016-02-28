@@ -1,7 +1,8 @@
 #include "I2Cdev.h"
-#include <plib.h>
+// Attempting to remove plib.h
+//#include <plib.h>
 #include <hardwareProfile.h>
-
+#include <peripheral/i2c.h>
 /*******************************************************************************
   Function:
     BOOL StartTransfer( BOOL restart )
