@@ -189,6 +189,7 @@ void programAsync(uint16_t timer1msDiff){
     if(CO->em->errorStatusBits[8] || CO->em->errorStatusBits[9])
         *CO->emPr->errorRegister |= 0x20;
     
+    
     /* uint8_t value = getDistance();
     
     if (value != vl6180_distance)
@@ -230,8 +231,19 @@ void program1ms(void){
     /* LATAbits.LATA3 = (CO->HBcons->allMonitoredOperational) ? 1 : 0; */
 
     /* Example error is simulated from buttons on Explorer16 */
-    if(!CAN_BUTTON0) CO_errorReport(CO->em, CO_EMA_TEST1_INFORMATIVE, CO_EMC_GENERIC, 0x12345678L);
-    if(!CAN_BUTTON1) CO_errorReset(CO->em, CO_EMA_TEST1_INFORMATIVE, 0xAAAAAABBL);
+    if(CAN_BUTTON0)
+    {
+        CAN_STATUS_LED = 1;
+        CO_errorReport(CO->em, CO_EMA_TEST1_INFORMATIVE, CO_EMC_GENERIC, 0x12345678L);
+    } else {
+        CAN_STATUS_LED = 0;
+    }
+    if(CAN_BUTTON1) {
+        //CAN_STATUS_LED = 0;
+        CO_errorReset(CO->em, CO_EMA_TEST1_INFORMATIVE, 0xAAAAAABBL);
+    } else {
+        //CAN_STATUS_LED = 1;
+    }
     
     
 #if 0
@@ -257,9 +269,9 @@ void program1ms(void){
     /* According to PDO mapping and communication parameters, first TPDO is sent */
     /* automatically on change of state of OD_readInput8Bit[0] variable. */
     buttons = 0;
-    if(!CAN_BUTTON0)  buttons |= 0x08;
-    if(!CAN_BUTTON1)  buttons |= 0x04;
-    if(!PORTDbits.RD13) buttons |= 0x01;
+    if(CAN_BUTTON0)  buttons |= 0x08;
+    if(CAN_BUTTON1)  buttons |= 0x04;
+    if(PORTDbits.RD13) buttons |= 0x01;
     OD_readInput8Bit[0] = buttons;
 }
 

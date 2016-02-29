@@ -120,16 +120,17 @@ function generateFiles(){
 	calculateObjects();
 
 	//generate final outputs
+	
 	generateCO_OD_H();
 	generateCO_OD_C();
-	generateEDSspec();
+	//generateEDSspec();
 	//generateXMLspec();
-	generateDOC();
+	//generateDOC();
 
 	//Finish
 	//remove 'please wait ...' text
 //	document.getElementById("introNote").hidden = true;
-	if(errorMessages.length){
+/*	if(errorMessages.length){
 		var err = "Output files are generated with errors or warnings:\n\n" + errorMessages.join("\n");
 		//document.getElementById("errors").removeAttribute("hidden");
 		//document.getElementById("errors").value = err;
@@ -138,7 +139,7 @@ function generateFiles(){
 	}
     else{
         g_openerWindow.source.postMessage("XDD"+"All output files are generated successfully without errors or warnings.", "*");
-    }
+    }*/
 	//else alert("All output files are generated successfully without errors or warnings.");
 }
 
@@ -1436,7 +1437,7 @@ function generateCO_OD_H(){
 		CO_OD_H_aliases.join("\n")+"\n"+
 		"\n"+
 		"#endif\n";
-
+		//window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
 		g_openerWindow.source.postMessage(text, "*");
 }
 

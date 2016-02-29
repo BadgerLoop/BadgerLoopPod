@@ -25,7 +25,7 @@
 /******************************************************************************/
 
 /* i.e. uint32_t <variable_name>; */
-    
+    uint8_t test = 0;
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
@@ -176,11 +176,6 @@ int32_t main(void)
             reset = CO_process(CO, timer1msDiff, NULL);
 
             CO_clearWDT();
-
-
-#ifdef USE_EEPROM
-            CO_EE_process(&CO_EEO);
-#endif
         }
     }
 
@@ -223,8 +218,12 @@ void __ISR(_TIMER_2_VECTOR, IPL3SOFT) CO_TimerInterruptHandler(void){
 
         /* Further I/O or nonblocking application code may go here. */
         program1ms();
-
+        
         /* Write outputs */
+        CO->TPDO[1]->sendRequest = 1;
+        uint8_t dataToSend = test;
+        CO->TPDO[1]->mapPointer[0] = &dataToSend;
+        test++;
         CO_process_TPDO(CO, syncWas, 1000);
 
         /* verify timer overflow */

@@ -490,9 +490,9 @@ bit 16-31: index from OD</description>
     <CANopenObject index="1A01" name="TPDO mapping parameter" objectType="9" subNumber="9" memoryType="ROM" accessFunctionName="CO_ODF_TPDOmap">
       <label lang="en">TPDO mapping parameter</label>
       <description lang="en">0x1A00 - 0x1BFF TPDO mapping parameter (see description for 0x1A00)</description>
-      <CANopenSubObject subIndex="00" name="Number of mapped objects" objectType="7" dataType="05" accessType="rw" PDOmapping="no" defaultValue="0"/>
-      <CANopenSubObject subIndex="01" name="mapped object 1" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
-      <CANopenSubObject subIndex="02" name="mapped object 2" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
+      <CANopenSubObject subIndex="00" name="Number of mapped objects" objectType="7" dataType="05" accessType="rw" PDOmapping="no" defaultValue="2"/>
+      <CANopenSubObject subIndex="01" name="mapped object 1" objectType="7" dataType="07" accessType="rw" PDOmapping="TPDO" defaultValue="0x00000000"/>
+      <CANopenSubObject subIndex="02" name="mapped object 2" objectType="7" dataType="07" accessType="rw" PDOmapping="TPDO" defaultValue="0x00000000"/>
       <CANopenSubObject subIndex="03" name="mapped object 3" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
       <CANopenSubObject subIndex="04" name="mapped object 4" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
       <CANopenSubObject subIndex="05" name="mapped object 5" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
@@ -503,9 +503,9 @@ bit 16-31: index from OD</description>
     <CANopenObject index="1A02" name="TPDO mapping parameter" objectType="9" subNumber="9" memoryType="ROM" accessFunctionName="CO_ODF_TPDOmap">
       <label lang="en">TPDO mapping parameter</label>
       <description lang="en">0x1A00 - 0x1BFF TPDO mapping parameter (see description for 0x1A00)</description>
-      <CANopenSubObject subIndex="00" name="Number of mapped objects" objectType="7" dataType="05" accessType="rw" PDOmapping="no" defaultValue="0"/>
-      <CANopenSubObject subIndex="01" name="mapped object 1" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
-      <CANopenSubObject subIndex="02" name="mapped object 2" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
+      <CANopenSubObject subIndex="00" name="Number of mapped objects" objectType="7" dataType="05" accessType="rw" PDOmapping="no" defaultValue="2"/>
+      <CANopenSubObject subIndex="01" name="mapped object 1" objectType="7" dataType="07" accessType="rw" PDOmapping="TPDO" defaultValue="0x00000000"/>
+      <CANopenSubObject subIndex="02" name="mapped object 2" objectType="7" dataType="07" accessType="rw" PDOmapping="TPDO" defaultValue="0x00000000"/>
       <CANopenSubObject subIndex="03" name="mapped object 3" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
       <CANopenSubObject subIndex="04" name="mapped object 4" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
       <CANopenSubObject subIndex="05" name="mapped object 5" objectType="7" dataType="07" accessType="rw" PDOmapping="no" defaultValue="0x00000000"/>
@@ -819,7 +819,7 @@ main cycle max time - maximum mainline function cycle time in percent of timer p
     </CANopenObject>
   </CANopenObjectList>
   <other>
-    <file fileName="IO" fileCreator="-" fileCreationDate="2013-03-09" fileCreationTime="13:23:28" fileVersion="3.0"/>
+    <file fileName="IO" fileCreator="-" fileCreationDate="2016-02-28" fileCreationTime="00:12:19" fileVersion="3.0"/>
     <DeviceIdentity>
       <vendorName>Paternoster</vendorName>
       <productName>CANopenNode</productName>
