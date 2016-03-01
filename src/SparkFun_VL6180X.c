@@ -151,7 +151,17 @@ int newRangeData(void)
        
 }
   
-
+//Delay function for y'all
+void delayzz(void) {
+	int i, j;
+	for(i=0;i<50000;i++)
+	{
+		for(j=0;j<2;j++) 
+		{
+			/* Well its Just a Timer */
+		}    
+	}  
+}
 
 uint8_t getDistance()
 {
@@ -159,11 +169,12 @@ uint8_t getDistance()
   //delay(10);
   //while (newRangeData() == 0);
   //__delay_ms(10);
+  // Delays like this are bad! Lets try not to use them except for testing... - Steve
+  /*delayzz();
   delayzz();
   delayzz();
   delayzz();
-  delayzz();
-  delayzz();
+  delayzz();*/
   
   //VL6180x_setRegister(VL6180X_SYSTEM_INTERRUPT_CLEAR, 0x07);
   return VL6180x_getRegister(VL6180X_RESULT_RANGE_VAL);

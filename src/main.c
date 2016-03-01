@@ -54,8 +54,6 @@ int32_t main(void)
     DDPCONbits.JTAGEN = 0; // Disable JTAG (Not used by us!)
     DDPCONbits.TROEN = 0; // Disable Trace
     
-    /* Initialize I/O and Peripherals for application */
-    InitApp();
 
     /* Below is code added by njaunich */
     unsigned int temp_ui;
@@ -85,6 +83,15 @@ int32_t main(void)
         /* Read CANopen Node-ID and CAN bit-rate from object dictionary */
         nodeId = OD_CANNodeID;
         if(nodeId<1 || nodeId>127) nodeId = 0x10;
+        
+        // The following two lines changes the nodeID's of my two PIC32's so I can
+        // stop doing it manually. EMAC1SA0 refers to the last two octets of the 
+        // Ethernet MAC address. This won't change anyone elses stuff...  - Steve
+        // Side Note: We could potentially use something like this to use the same
+        // code to program every microcontroller!
+        if(EMAC1SA0 == 0x000056C4) nodeId = 0x40;
+        if(EMAC1SA0 == 0x000040DF) nodeId = 0x41;
+        
         CANBitRate = OD_CANBitRate;/* in kbps */
 
         /* initialize CANopen */
@@ -124,7 +131,7 @@ int32_t main(void)
         CO_CAN_ISR2_PRIORITY = 5;  /* CAN Interrupt - Set higher priority than timer (set the same value in '#define CO_CAN_ISR_PRIORITY') */
 
 
-        communicationReset();
+        CANReset();
 
 
         /* start CAN and enable interrupts */
@@ -167,7 +174,7 @@ int32_t main(void)
 
 
             /* Application asynchronous program */
-            programAsync(timer1msDiff);
+            CANAsync(timer1msDiff);
 
             CO_clearWDT();
 
@@ -185,6 +192,7 @@ int32_t main(void)
 
     /* delete objects from memory */
     programEnd();
+    CANEnd();
     CO_delete(ADDR_CAN1);
 
     /* reset */
@@ -217,7 +225,7 @@ void __ISR(_TIMER_2_VECTOR, IPL3SOFT) CO_TimerInterruptHandler(void){
 #endif
 
         /* Further I/O or nonblocking application code may go here. */
-        program1ms();
+        CAN1ms();
         
         /* Write outputs */
         CO->TPDO[1]->sendRequest = 1;
