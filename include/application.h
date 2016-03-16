@@ -18,3 +18,9 @@ extern void program1ms(void);
 #define DATA_LED4       LATEbits.LATE4
 #define DATA_LED5_DIR   TRISEbits.TRISE5
 #define DATA_LED5       LATEbits.LATE5
+
+struct MPU MPUData;
+
+struct MPU {
+    int16_t ax, ay, az, gx, gy, gz;
+};

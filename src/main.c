@@ -9,7 +9,7 @@
 #include "configuration_bits.h"
 #include "main.h"
 #include "system.h"
-#include "user.h"
+#include "USBDebug.h"
 
 /* Code added by njaunich */
 #include "application.h"
@@ -66,6 +66,8 @@ int32_t main(void)
     if(CO_OD_EEPROM.FirstWord != CO_OD_EEPROM.LastWord) while(1) CO_clearWDT();
     if(CO_OD_ROM.FirstWord != CO_OD_ROM.LastWord) while(1) CO_clearWDT();
 
+    USBDebugInit();
+    WriteUART1("Hello! Welcome to the Max32!\r\n");
     programStart();
 
     while(reset != CO_RESET_APP){

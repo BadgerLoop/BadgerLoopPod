@@ -20,9 +20,9 @@
 #pragma config FNOSC    = PRIPLL                        // Oscillator Selection
 #pragma config POSCMOD  = XT //HS                       // Primary Oscillator
 #pragma config FPLLIDIV = DIV_2                         // PLL input divider
-#pragma config FPLLMUL  = MUL_20 //MUL_16               // PLL multiplier
+#pragma config FPLLMUL  = MUL_16 //MUL_16               // PLL multiplier
 #pragma config FPLLODIV = DIV_1                         // PLL output divider
-#pragma config FPBDIV   = DIV_2                         // Peripheral bus clock divider
+#pragma config FPBDIV   = DIV_1                         // Peripheral bus clock divider
 #pragma config FSOSCEN  = OFF                           // Secondary Oscillator Enable
 
 //*    Clock control settings
@@ -44,3 +44,6 @@
 #pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
 #pragma config FCANIO = OFF //Nick: Alternate CAN Pins
+
+#pragma config UPLLEN = ON          // USB clock uses PLL
+#pragma config UPLLIDIV = DIV_2     // Divide 8 MHz input by 2, mult by 12 for 48 MHz

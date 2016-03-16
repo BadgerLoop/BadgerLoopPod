@@ -183,7 +183,7 @@
    #define GetPeripheralClock()   GetInstructionClock()
 #elif defined(__PIC32MX__)
    // PIC32MX processor
-   #define GetSystemClock()      (80000000ul)      // Hz
+   #define GetSystemClock()      (64000000ul)      // Hz
    #define GetInstructionClock()   (GetSystemClock()/1)
    #define GetPeripheralClock()   (GetInstructionClock()/(1<<OSCCONbits.PBDIV))   // Set your divider according to your Peripheral Bus Frequency configuration fuse setting
 #endif

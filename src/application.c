@@ -24,11 +24,17 @@ void programStart(void){
     DATA_LED5_DIR = 0; DATA_LED5 = 0;
     
     // Initialize the ADC code
-    ADCInit(5, true); // 5Hz (visible testing made easy) and using the Timer
-    ADCAdd(0, adc1_func);
-    ADCAdd(1, adc2_func);
+    //ADCInit(5, true); // 5Hz (visible testing made easy) and using the Timer
+    //ADCAdd(0, adc1_func);
+    //ADCAdd(1, adc2_func);
     
     init_I2C(); //Start I2C
+    MPU6050(MPU6050_DEFAULT_ADDRESS);
+    MPU6050_initialize();
+    int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
+    ay = 11;
+    MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+    uint8_t MPUAccelRange = MPU6050_getFullScaleAccelRange();
 }
 
 /******************************************************************************/
@@ -44,6 +50,12 @@ void programAsync(uint16_t timer1msDiff){
 
 /******************************************************************************/
 void program1ms(void){
+    /*MPU6050_getMotion6(&MPUData.ax, &MPUData.ay, &MPUData.az, &MPUData.gx, &MPUData.gy, &MPUData.gz);
+    if (MPUData.ay > 0) {
+        DATA_LED0 = 1;
+    } else {
+        DATA_LED0 = 0;
+    }*/
 }
 
 void adc1_func(int newValue) {
