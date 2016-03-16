@@ -1,4 +1,3 @@
-t
 #include "I2Cdev.h"
 #include <peripheral/i2c.h>
 #include <hardwareProfile.h>
