@@ -9,6 +9,7 @@
 //#include <plib.h>            /* Include to use PIC32 peripheral libraries     */
 #include <stdint.h>          /* For uint32_t definition                       */
 #include <stdbool.h>         /* For true/false definition                     */
+#include "USBDebug.h"
 
 /******************************************************************************/
 /* Exception Macro Definitions                                                */
@@ -54,6 +55,7 @@ static enum {
 static unsigned int _epc_code;
 static unsigned int _excep_addr;
 
+//uint32_t t_excep_code, t_excep_addr;
 /******************************************************************************/
 /* Exception Handling                                                         */
 /******************************************************************************/
@@ -118,7 +120,7 @@ void _general_exception_handler(void)
     NVMWriteWord((void*)EXCEPTION_ADDR, _excep_addr);
 
 #endif
-
+    
     while (1)
     {
         /* Examine _excep_code to identify the type of exception */

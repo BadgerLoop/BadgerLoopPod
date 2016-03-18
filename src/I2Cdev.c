@@ -252,6 +252,7 @@ int8_t I2Cdev_readByte2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint8
         }
         else
         {
+            uint8_t len = length; // Debug purposes
             int i = 0;
             for (i = 0; i < length; i++)
             {
@@ -518,7 +519,7 @@ BOOL I2Cdev_writeByte2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint8_
  * @return Status of operation (true = success)
  */
 BOOL I2Cdev_writeByte(uint8_t devAddr, uint8_t regAddr, uint8_t data) {
-    return I2Cdev_writeBytes(devAddr, regAddr, 1, data);
+    return I2Cdev_writeBytes(devAddr, regAddr, 1, &data);
 }
 
 /** Write multiple words to a 16-bit device register.

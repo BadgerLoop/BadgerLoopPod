@@ -32,9 +32,10 @@ void programStart(void){
     MPU6050(MPU6050_DEFAULT_ADDRESS);
     MPU6050_initialize();
     int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
+    
+    uint8_t MPUAccelRange = MPU6050_getFullScaleAccelRange();
     ay = 11;
     MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-    uint8_t MPUAccelRange = MPU6050_getFullScaleAccelRange();
 }
 
 /******************************************************************************/
