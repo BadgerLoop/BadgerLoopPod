@@ -39,17 +39,20 @@
 
 #include <stdint.h>         /* For uint32_t definition                        */
 #include <stdbool.h>        /* For true/false definition                      */
+#include <stdlib.h>
 
-#define VL6180x_FAILURE_RESET  -1
-
+/* Device Registers */
+// Identification
 #define VL6180X_IDENTIFICATION_MODEL_ID              0x0000
 #define VL6180X_IDENTIFICATION_MODEL_REV_MAJOR       0x0001
 #define VL6180X_IDENTIFICATION_MODEL_REV_MINOR       0x0002
 #define VL6180X_IDENTIFICATION_MODULE_REV_MAJOR      0x0003
 #define VL6180X_IDENTIFICATION_MODULE_REV_MINOR      0x0004
-#define VL6180X_IDENTIFICATION_DATE                  0x0006 //16bit value
-#define VL6180X_IDENTIFICATION_TIME                  0x0008 //16bit value
-
+#define VL6180X_IDENTIFICATION_DATE_HI               0x0006
+#define VL6180X_IDENTIFICATION_DATE_LO               0x0007
+#define VL6180X_IDENTIFICATION_TIME_HI               0x0008
+#define VL6180X_IDENTIFICATION_TIME_LO               0x0009
+// System Setup
 #define VL6180X_SYSTEM_MODE_GPIO0                    0x0010
 #define VL6180X_SYSTEM_MODE_GPIO1                    0x0011
 #define VL6180X_SYSTEM_HISTORY_CTRL                  0x0012
@@ -57,7 +60,7 @@
 #define VL6180X_SYSTEM_INTERRUPT_CLEAR               0x0015
 #define VL6180X_SYSTEM_FRESH_OUT_OF_RESET            0x0016
 #define VL6180X_SYSTEM_GROUPED_PARAMETER_HOLD        0x0017
-
+// Range setup
 #define VL6180X_SYSRANGE_START                       0x0018
 #define VL6180X_SYSRANGE_THRESH_HIGH                 0x0019
 #define VL6180X_SYSRANGE_THRESH_LOW                  0x001A
@@ -73,19 +76,19 @@
 #define VL6180X_SYSRANGE_RANGE_CHECK_ENABLES         0x002D
 #define VL6180X_SYSRANGE_VHV_RECALIBRATE             0x002E
 #define VL6180X_SYSRANGE_VHV_REPEAT_RATE             0x0031
-
+// ALS Setup
 #define VL6180X_SYSALS_START                         0x0038
 #define VL6180X_SYSALS_THRESH_HIGH                   0x003A
 #define VL6180X_SYSALS_THRESH_LOW                    0x003C
 #define VL6180X_SYSALS_INTERMEASUREMENT_PERIOD       0x003E
 #define VL6180X_SYSALS_ANALOGUE_GAIN                 0x003F
 #define VL6180X_SYSALS_INTEGRATION_PERIOD            0x0040
-
+// Results
 #define VL6180X_RESULT_RANGE_STATUS                  0x004D
 #define VL6180X_RESULT_ALS_STATUS                    0x004E
 #define VL6180X_RESULT_INTERRUPT_STATUS_GPIO         0x004F
 #define VL6180X_RESULT_ALS_VAL                       0x0050
-#define VL6180X_RESULT_HISTORY_BUFFER                0x0052 
+#define VL6180X_RESULT_HISTORY_BUFFER                0x0052 // Buffer from 0x52:0x60
 #define VL6180X_RESULT_RANGE_VAL                     0x0062
 #define VL6180X_RESULT_RANGE_RAW                     0x0064
 #define VL6180X_RESULT_RANGE_RETURN_RATE             0x0066
@@ -96,79 +99,43 @@
 #define VL6180X_RESULT_RANGE_REFERENCE_AMB_COUNT     0x0078
 #define VL6180X_RESULT_RANGE_RETURN_CONV_TIME        0x007C
 #define VL6180X_RESULT_RANGE_REFERENCE_CONV_TIME     0x0080
-
+// Misc
 #define VL6180X_READOUT_AVERAGING_SAMPLE_PERIOD      0x010A
 #define VL6180X_FIRMWARE_BOOTUP                      0x0119
 #define VL6180X_FIRMWARE_RESULT_SCALER               0x0120
 #define VL6180X_I2C_SLAVE_DEVICE_ADDRESS             0x0212
 #define VL6180X_INTERLEAVED_MODE_ENABLE              0x02A3
 
-
 typedef enum { //Data sheet shows gain values as binary list
-
-GAIN_20 = 0, // Actual ALS Gain of 20
-GAIN_10,     // Actual ALS Gain of 10.32
-GAIN_5,      // Actual ALS Gain of 5.21
-GAIN_2_5,    // Actual ALS Gain of 2.60
-GAIN_1_67,   // Actual ALS Gain of 1.72
-GAIN_1_25,   // Actual ALS Gain of 1.28
-GAIN_1 ,     // Actual ALS Gain of 1.01
-GAIN_40     // Actual ALS Gain of 40
-
+    GAIN_20 = 0, // Actual ALS Gain of 20
+    GAIN_10,     // Actual ALS Gain of 10
+    GAIN_5,      // Actual ALS Gain of 5
+    GAIN_2_5,    // Actual ALS Gain of 2.50
+    GAIN_1_67,   // Actual ALS Gain of 1.67
+    GAIN_1_25,   // Actual ALS Gain of 1.25
+    GAIN_1 ,     // Actual ALS Gain of 1.0
+    GAIN_40     // Actual ALS Gain of 40
 } vl6180x_als_gain;
-
-struct VL6180xIdentification
-{
-  uint8_t idModel;
-  uint8_t idModelRevMajor;
-  uint8_t idModelRevMinor;
-  uint8_t idModuleRevMajor;
-  uint8_t idModuleRevMinor;
-  uint16_t idDate;
-  uint16_t idTime;
+    
+struct _VL6180X {
+    uint8_t address;
+    uint8_t distance;
+    float ambientLight;
+    uint8_t idModel;
+    uint8_t idModelRevMajor;
+    uint8_t idModelRevMinor;
+    uint8_t idModuleRevMajor;
+    uint8_t idModuleRevMinor;
+    uint16_t idDate;
+    uint16_t idTime;
+    uint8_t (*getDistance)(struct _VL6180X* self);
+    float (*getAmbientLight)(struct _VL6180X* self, vl6180x_als_gain VL6180X_ALS_GAIN);   
 };
+typedef struct _VL6180X VL6180X;
 
-  //Initalize library with default address
-void VL6180x(uint8_t address);
-  //Send manditory settings as stated in ST datasheet.
-  // http://www.st.com/st-web-ui/static/active/en/resource/technical/document/application_note/DM00122600.pdf (Section 1.3)
-uint8_t VL6180xInit(void);
-  // Use default settings from ST data sheet section 9.
-  // http://www.st.com/st-web-ui/static/active/en/resource/technical/document/application_note/DM00122600.pdf
-  void VL6180xDefautSettings(void);
-
-  // Get Range distance in (mm)
-  uint8_t getDistance();
-  // Get ALS level in Lux
-float getAmbientLight(vl6180x_als_gain VL6180X_ALS_GAIN);
-
-  //Load structure provided by the user with identification info
-  //Structure example:
-  // struct VL6180xIdentification
-  //  {
-  //   uint8_t idModel;
-  //   uint8_t idModelRevMajor;
-  //   uint8_t idModelRevMinor;
-  //   uint8_t idModuleRevMajor;
-  //   uint8_t idModuleRevMinor;
-  //   uint16_t idDate;
-  //   uint16_t idTime;
-  //   };
-  void getIdentification(struct VL6180xIdentification *temp);
-
-  //Change the default address of the device to allow multiple
-  //sensors on the bus.  Can use up to 127 sensors. New address
-  //is saved in non-volatile device memory.
-  uint8_t changeAddress(uint8_t old_address, uint8_t new_address);
-  //Store address given when the class is initialized.
-  //This value can be changed by the changeAddress() function
-int _i2caddress;
-
-uint8_t VL6180x_getRegister(uint16_t registerAddr);
-uint16_t VL6180x_getRegister16bit(uint16_t registerAddr);
-
-void VL6180x_setRegister(uint16_t registerAddr, uint8_t data);
-void VL6180x_setRegister16bit(uint16_t registerAddr, uint16_t data);
+void VL6180XInit(VL6180X* self, uint8_t address);
+bool VL6180XInitialize(VL6180X* self);
+uint8_t getDistance(VL6180X* self);
+float getAmbientLight(VL6180X* self, vl6180x_als_gain VL6180X_ALS_GAIN);
 
 #endif
-

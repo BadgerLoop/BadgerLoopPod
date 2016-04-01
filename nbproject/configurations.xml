@@ -13,13 +13,13 @@
         <itemPath>include/main.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="hardware" projectFiles="true">
-        <itemPath>include/I2Cdev.h</itemPath>
-        <itemPath>include/MPU6050.h</itemPath>
         <itemPath>include/hardwareProfile.h</itemPath>
         <itemPath>include/SparkFun_VL6180X.h</itemPath>
         <itemPath>include/adc.h</itemPath>
         <itemPath>include/CAN.h</itemPath>
         <itemPath>include/USBDebug.h</itemPath>
+        <itemPath>include/I2C.h</itemPath>
+        <itemPath>include/MPU9250.h</itemPath>
       </logicalFolder>
       <logicalFolder name="lib" displayName="lib" projectFiles="true">
         <logicalFolder name="CANopenNode" displayName="CANopenNode" projectFiles="true">
@@ -70,11 +70,11 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="hardware" projectFiles="true">
         <itemPath>src/SparkFun_VL6180X.c</itemPath>
-        <itemPath>src/MPU6050.c</itemPath>
-        <itemPath>src/I2Cdev.c</itemPath>
         <itemPath>src/adc.c</itemPath>
         <itemPath>src/CAN.c</itemPath>
         <itemPath>src/USBDebug.c</itemPath>
+        <itemPath>src/I2C.c</itemPath>
+        <itemPath>src/MPU9250.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

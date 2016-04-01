@@ -3,5 +3,6 @@
 #include "hardwareProfile.h"
 
 void USBDebugInit(void);
-void ReadUART1(char * string, int maxLength);
-void WriteUART1(const char * string);
+void getMessage(char * string, int maxLength);
+void print(const char * string);
+void println(const char * string);

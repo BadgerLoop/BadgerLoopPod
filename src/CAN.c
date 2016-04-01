@@ -80,12 +80,11 @@ void CAN1ms(void){
 
     /* Read RPDO and show it on LEDS on Explorer16. */
     leds = OD_writeOutput8Bit[0];
-    DATA_LED0 = (leds&0x04) ? 1 : 0;
-    DATA_LED1 = (leds&0x08) ? 1 : 0;
-    DATA_LED2 = (leds&0x10) ? 1 : 0;
-    DATA_LED3 = (leds&0x20) ? 1 : 0;
-    DATA_LED4 = (leds&0x40) ? 1 : 0;
-    DATA_LED5 = (leds&0x80) ? 1 : 0;
+    /*
+    char output[100] = {};
+    sprintf(output, "CAN bits: %d %d %d %d %d %d %d %d", dataBits[0], dataBits[1], dataBits[2], dataBits[3], dataBits[4], dataBits[5], dataBits[6], dataBits[7]);
+    print(output);
+    */
 
 
     /* Verify operating state of this node */
@@ -93,8 +92,8 @@ void CAN1ms(void){
 
     /* Verify operating state of monitored nodes */
     /* LATAbits.LATA3 = (CO->HBcons->allMonitoredOperational) ? 1 : 0; */
-
-    /* Example error is simulated from buttons on Explorer16 */
+    
+    /* Example error is simulated from buttons on Explorer16 
     if(CAN_BUTTON0)
     {
         CAN_STATUS_LED = 1;
@@ -107,15 +106,15 @@ void CAN1ms(void){
         CO_errorReset(CO->em, CO_EMA_TEST1_INFORMATIVE, 0xAAAAAABBL);
     } else {
         //CAN_STATUS_LED = 1;
-    }
+    }*/
     /* Prepare TPDO from buttons on Explorer16. */
     /* According to PDO mapping and communication parameters, first TPDO is sent */
-    /* automatically on change of state of OD_readInput8Bit[0] variable. */
+    /* automatically on change of state of OD_readInput8Bit[0] variable. 
     buttons = 0;
     if(CAN_BUTTON0)  buttons |= 0x08;
     if(CAN_BUTTON1)  buttons |= 0x04;
     //if(PORTDbits.RD13) buttons |= 0x01;
-    OD_readInput8Bit[0] = buttons;
+    OD_readInput8Bit[0] = buttons;*/
 }
 
 #ifdef OD_testVar

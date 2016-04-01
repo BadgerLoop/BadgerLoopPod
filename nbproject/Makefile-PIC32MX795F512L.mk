@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=src/interrupts.c src/exceptions.c src/application.c lib/CANopenNode/CANopen.c lib/CANopenNode/CO_driver.c lib/CANopenNode/CO_Emergency.c lib/CANopenNode/CO_HBconsumer.c lib/CANopenNode/CO_NMT_Heartbeat.c lib/CANopenNode/CO_OD.c lib/CANopenNode/CO_PDO.c lib/CANopenNode/CO_SDO.c lib/CANopenNode/CO_SDOmaster.c lib/CANopenNode/CO_SYNC.c lib/CANopenNode/crc16-ccitt.c lib/CANopenNode/eeprom.c src/system.c src/main.c src/SparkFun_VL6180X.c src/MPU6050.c src/I2Cdev.c src/adc.c src/CAN.c src/USBDebug.c
+SOURCEFILES_QUOTED_IF_SPACED=src/interrupts.c src/exceptions.c src/application.c lib/CANopenNode/CANopen.c lib/CANopenNode/CO_driver.c lib/CANopenNode/CO_Emergency.c lib/CANopenNode/CO_HBconsumer.c lib/CANopenNode/CO_NMT_Heartbeat.c lib/CANopenNode/CO_OD.c lib/CANopenNode/CO_PDO.c lib/CANopenNode/CO_SDO.c lib/CANopenNode/CO_SDOmaster.c lib/CANopenNode/CO_SYNC.c lib/CANopenNode/crc16-ccitt.c lib/CANopenNode/eeprom.c src/system.c src/main.c src/adc.c src/CAN.c src/USBDebug.c src/I2C.c src/MPU9250.c src/VL6180X.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/interrupts.o ${OBJECTDIR}/src/exceptions.o ${OBJECTDIR}/src/application.o ${OBJECTDIR}/lib/CANopenNode/CANopen.o ${OBJECTDIR}/lib/CANopenNode/CO_driver.o ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o ${OBJECTDIR}/lib/CANopenNode/CO_OD.o ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o ${OBJECTDIR}/lib/CANopenNode/eeprom.o ${OBJECTDIR}/src/system.o ${OBJECTDIR}/src/main.o ${OBJECTDIR}/src/SparkFun_VL6180X.o ${OBJECTDIR}/src/MPU6050.o ${OBJECTDIR}/src/I2Cdev.o ${OBJECTDIR}/src/adc.o ${OBJECTDIR}/src/CAN.o ${OBJECTDIR}/src/USBDebug.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/src/interrupts.o.d ${OBJECTDIR}/src/exceptions.o.d ${OBJECTDIR}/src/application.o.d ${OBJECTDIR}/lib/CANopenNode/CANopen.o.d ${OBJECTDIR}/lib/CANopenNode/CO_driver.o.d ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o.d ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o.d ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o.d ${OBJECTDIR}/lib/CANopenNode/CO_OD.o.d ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o.d ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o.d ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o.d ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o.d ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o.d ${OBJECTDIR}/lib/CANopenNode/eeprom.o.d ${OBJECTDIR}/src/system.o.d ${OBJECTDIR}/src/main.o.d ${OBJECTDIR}/src/SparkFun_VL6180X.o.d ${OBJECTDIR}/src/MPU6050.o.d ${OBJECTDIR}/src/I2Cdev.o.d ${OBJECTDIR}/src/adc.o.d ${OBJECTDIR}/src/CAN.o.d ${OBJECTDIR}/src/USBDebug.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/interrupts.o ${OBJECTDIR}/src/exceptions.o ${OBJECTDIR}/src/application.o ${OBJECTDIR}/lib/CANopenNode/CANopen.o ${OBJECTDIR}/lib/CANopenNode/CO_driver.o ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o ${OBJECTDIR}/lib/CANopenNode/CO_OD.o ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o ${OBJECTDIR}/lib/CANopenNode/eeprom.o ${OBJECTDIR}/src/system.o ${OBJECTDIR}/src/main.o ${OBJECTDIR}/src/adc.o ${OBJECTDIR}/src/CAN.o ${OBJECTDIR}/src/USBDebug.o ${OBJECTDIR}/src/I2C.o ${OBJECTDIR}/src/MPU9250.o ${OBJECTDIR}/src/VL6180X.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/src/interrupts.o.d ${OBJECTDIR}/src/exceptions.o.d ${OBJECTDIR}/src/application.o.d ${OBJECTDIR}/lib/CANopenNode/CANopen.o.d ${OBJECTDIR}/lib/CANopenNode/CO_driver.o.d ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o.d ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o.d ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o.d ${OBJECTDIR}/lib/CANopenNode/CO_OD.o.d ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o.d ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o.d ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o.d ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o.d ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o.d ${OBJECTDIR}/lib/CANopenNode/eeprom.o.d ${OBJECTDIR}/src/system.o.d ${OBJECTDIR}/src/main.o.d ${OBJECTDIR}/src/adc.o.d ${OBJECTDIR}/src/CAN.o.d ${OBJECTDIR}/src/USBDebug.o.d ${OBJECTDIR}/src/I2C.o.d ${OBJECTDIR}/src/MPU9250.o.d ${OBJECTDIR}/src/VL6180X.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/src/interrupts.o ${OBJECTDIR}/src/exceptions.o ${OBJECTDIR}/src/application.o ${OBJECTDIR}/lib/CANopenNode/CANopen.o ${OBJECTDIR}/lib/CANopenNode/CO_driver.o ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o ${OBJECTDIR}/lib/CANopenNode/CO_OD.o ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o ${OBJECTDIR}/lib/CANopenNode/eeprom.o ${OBJECTDIR}/src/system.o ${OBJECTDIR}/src/main.o ${OBJECTDIR}/src/SparkFun_VL6180X.o ${OBJECTDIR}/src/MPU6050.o ${OBJECTDIR}/src/I2Cdev.o ${OBJECTDIR}/src/adc.o ${OBJECTDIR}/src/CAN.o ${OBJECTDIR}/src/USBDebug.o
+OBJECTFILES=${OBJECTDIR}/src/interrupts.o ${OBJECTDIR}/src/exceptions.o ${OBJECTDIR}/src/application.o ${OBJECTDIR}/lib/CANopenNode/CANopen.o ${OBJECTDIR}/lib/CANopenNode/CO_driver.o ${OBJECTDIR}/lib/CANopenNode/CO_Emergency.o ${OBJECTDIR}/lib/CANopenNode/CO_HBconsumer.o ${OBJECTDIR}/lib/CANopenNode/CO_NMT_Heartbeat.o ${OBJECTDIR}/lib/CANopenNode/CO_OD.o ${OBJECTDIR}/lib/CANopenNode/CO_PDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDO.o ${OBJECTDIR}/lib/CANopenNode/CO_SDOmaster.o ${OBJECTDIR}/lib/CANopenNode/CO_SYNC.o ${OBJECTDIR}/lib/CANopenNode/crc16-ccitt.o ${OBJECTDIR}/lib/CANopenNode/eeprom.o ${OBJECTDIR}/src/system.o ${OBJECTDIR}/src/main.o ${OBJECTDIR}/src/adc.o ${OBJECTDIR}/src/CAN.o ${OBJECTDIR}/src/USBDebug.o ${OBJECTDIR}/src/I2C.o ${OBJECTDIR}/src/MPU9250.o ${OBJECTDIR}/src/VL6180X.o
 
 # Source Files
-SOURCEFILES=src/interrupts.c src/exceptions.c src/application.c lib/CANopenNode/CANopen.c lib/CANopenNode/CO_driver.c lib/CANopenNode/CO_Emergency.c lib/CANopenNode/CO_HBconsumer.c lib/CANopenNode/CO_NMT_Heartbeat.c lib/CANopenNode/CO_OD.c lib/CANopenNode/CO_PDO.c lib/CANopenNode/CO_SDO.c lib/CANopenNode/CO_SDOmaster.c lib/CANopenNode/CO_SYNC.c lib/CANopenNode/crc16-ccitt.c lib/CANopenNode/eeprom.c src/system.c src/main.c src/SparkFun_VL6180X.c src/MPU6050.c src/I2Cdev.c src/adc.c src/CAN.c src/USBDebug.c
+SOURCEFILES=src/interrupts.c src/exceptions.c src/application.c lib/CANopenNode/CANopen.c lib/CANopenNode/CO_driver.c lib/CANopenNode/CO_Emergency.c lib/CANopenNode/CO_HBconsumer.c lib/CANopenNode/CO_NMT_Heartbeat.c lib/CANopenNode/CO_OD.c lib/CANopenNode/CO_PDO.c lib/CANopenNode/CO_SDO.c lib/CANopenNode/CO_SDOmaster.c lib/CANopenNode/CO_SYNC.c lib/CANopenNode/crc16-ccitt.c lib/CANopenNode/eeprom.c src/system.c src/main.c src/adc.c src/CAN.c src/USBDebug.c src/I2C.c src/MPU9250.c src/VL6180X.c
 
 
 CFLAGS=
@@ -196,24 +196,6 @@ ${OBJECTDIR}/src/main.o: src/main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/src/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/src/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/main.o.d" -o ${OBJECTDIR}/src/main.o src/main.c     
 	
-${OBJECTDIR}/src/SparkFun_VL6180X.o: src/SparkFun_VL6180X.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/SparkFun_VL6180X.o.d 
-	@${RM} ${OBJECTDIR}/src/SparkFun_VL6180X.o 
-	@${FIXDEPS} "${OBJECTDIR}/src/SparkFun_VL6180X.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/SparkFun_VL6180X.o.d" -o ${OBJECTDIR}/src/SparkFun_VL6180X.o src/SparkFun_VL6180X.c     
-	
-${OBJECTDIR}/src/MPU6050.o: src/MPU6050.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/MPU6050.o.d 
-	@${RM} ${OBJECTDIR}/src/MPU6050.o 
-	@${FIXDEPS} "${OBJECTDIR}/src/MPU6050.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/MPU6050.o.d" -o ${OBJECTDIR}/src/MPU6050.o src/MPU6050.c     
-	
-${OBJECTDIR}/src/I2Cdev.o: src/I2Cdev.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/I2Cdev.o.d 
-	@${RM} ${OBJECTDIR}/src/I2Cdev.o 
-	@${FIXDEPS} "${OBJECTDIR}/src/I2Cdev.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/I2Cdev.o.d" -o ${OBJECTDIR}/src/I2Cdev.o src/I2Cdev.c     
-	
 ${OBJECTDIR}/src/adc.o: src/adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/adc.o.d 
@@ -231,6 +213,24 @@ ${OBJECTDIR}/src/USBDebug.o: src/USBDebug.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/src/USBDebug.o.d 
 	@${RM} ${OBJECTDIR}/src/USBDebug.o 
 	@${FIXDEPS} "${OBJECTDIR}/src/USBDebug.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/USBDebug.o.d" -o ${OBJECTDIR}/src/USBDebug.o src/USBDebug.c     
+	
+${OBJECTDIR}/src/I2C.o: src/I2C.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/I2C.o.d 
+	@${RM} ${OBJECTDIR}/src/I2C.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/I2C.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/I2C.o.d" -o ${OBJECTDIR}/src/I2C.o src/I2C.c     
+	
+${OBJECTDIR}/src/MPU9250.o: src/MPU9250.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/MPU9250.o.d 
+	@${RM} ${OBJECTDIR}/src/MPU9250.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/MPU9250.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/MPU9250.o.d" -o ${OBJECTDIR}/src/MPU9250.o src/MPU9250.c     
+	
+${OBJECTDIR}/src/VL6180X.o: src/VL6180X.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/VL6180X.o.d 
+	@${RM} ${OBJECTDIR}/src/VL6180X.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/VL6180X.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/VL6180X.o.d" -o ${OBJECTDIR}/src/VL6180X.o src/VL6180X.c     
 	
 else
 ${OBJECTDIR}/src/interrupts.o: src/interrupts.c  nbproject/Makefile-${CND_CONF}.mk
@@ -335,24 +335,6 @@ ${OBJECTDIR}/src/main.o: src/main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/src/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/src/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/main.o.d" -o ${OBJECTDIR}/src/main.o src/main.c     
 	
-${OBJECTDIR}/src/SparkFun_VL6180X.o: src/SparkFun_VL6180X.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/SparkFun_VL6180X.o.d 
-	@${RM} ${OBJECTDIR}/src/SparkFun_VL6180X.o 
-	@${FIXDEPS} "${OBJECTDIR}/src/SparkFun_VL6180X.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/SparkFun_VL6180X.o.d" -o ${OBJECTDIR}/src/SparkFun_VL6180X.o src/SparkFun_VL6180X.c     
-	
-${OBJECTDIR}/src/MPU6050.o: src/MPU6050.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/MPU6050.o.d 
-	@${RM} ${OBJECTDIR}/src/MPU6050.o 
-	@${FIXDEPS} "${OBJECTDIR}/src/MPU6050.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/MPU6050.o.d" -o ${OBJECTDIR}/src/MPU6050.o src/MPU6050.c     
-	
-${OBJECTDIR}/src/I2Cdev.o: src/I2Cdev.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/src" 
-	@${RM} ${OBJECTDIR}/src/I2Cdev.o.d 
-	@${RM} ${OBJECTDIR}/src/I2Cdev.o 
-	@${FIXDEPS} "${OBJECTDIR}/src/I2Cdev.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/I2Cdev.o.d" -o ${OBJECTDIR}/src/I2Cdev.o src/I2Cdev.c     
-	
 ${OBJECTDIR}/src/adc.o: src/adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
 	@${RM} ${OBJECTDIR}/src/adc.o.d 
@@ -370,6 +352,24 @@ ${OBJECTDIR}/src/USBDebug.o: src/USBDebug.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/src/USBDebug.o.d 
 	@${RM} ${OBJECTDIR}/src/USBDebug.o 
 	@${FIXDEPS} "${OBJECTDIR}/src/USBDebug.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/USBDebug.o.d" -o ${OBJECTDIR}/src/USBDebug.o src/USBDebug.c     
+	
+${OBJECTDIR}/src/I2C.o: src/I2C.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/I2C.o.d 
+	@${RM} ${OBJECTDIR}/src/I2C.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/I2C.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/I2C.o.d" -o ${OBJECTDIR}/src/I2C.o src/I2C.c     
+	
+${OBJECTDIR}/src/MPU9250.o: src/MPU9250.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/MPU9250.o.d 
+	@${RM} ${OBJECTDIR}/src/MPU9250.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/MPU9250.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/MPU9250.o.d" -o ${OBJECTDIR}/src/MPU9250.o src/MPU9250.c     
+	
+${OBJECTDIR}/src/VL6180X.o: src/VL6180X.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/VL6180X.o.d 
+	@${RM} ${OBJECTDIR}/src/VL6180X.o 
+	@${FIXDEPS} "${OBJECTDIR}/src/VL6180X.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"include/" -I"lib/CANopenNode/" -mlong-calls -D_SUPPRESS_PLIB_WARNING -MMD -MF "${OBJECTDIR}/src/VL6180X.o.d" -o ${OBJECTDIR}/src/VL6180X.o src/VL6180X.c     
 	
 endif
 

@@ -19,7 +19,7 @@ void USBDebugInit() {
 }
 
 // Read from UART1 until you get a '\r' or '\n'
-void ReadUART1(char * message, int maxLength) {
+void getMessage(char * message, int maxLength) {
     char data = 0;
     int complete = 0, num_bytes = 0;
     // loop until you get a '\r' or '\n'
@@ -41,7 +41,7 @@ void ReadUART1(char * message, int maxLength) {
 }
 
 // Write a character array using UART1
-void WriteUART1(const char * string) {
+void print(const char * string) {
     while (*string != '\0') {
         while (U1STAbits.UTXBF) {
             ; // wait until tx buffer isn't full
@@ -49,4 +49,10 @@ void WriteUART1(const char * string) {
         U1TXREG = *string;
         ++string;
     }
+}
+
+// Write a character array using UART1
+void println(const char * string) {
+    print(string);
+    print("\r\n");
 }

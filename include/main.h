@@ -1,3 +1,16 @@
+#include <xc.h>          /* Defines special funciton registers, CP0 regs  */
+#include <stdint.h>         /* For uint32_t definition                        */
+#include <stdbool.h>        /* For true/false definition                      */
+#include <sys/attribs.h>        /* for interrupts */
+
+#include "configuration_bits.h"
+//#include "system.h"
+#include "CANopen.h"
+#include "USBDebug.h"
+/* Code added by njaunich */
+#define CO_NO_CAN_MODULES 1
+
+
 /* CANopen Macros */
 #define CO_TMR_TMR          TMR2             /* TMR register */
 #define CO_TMR_PR           PR2              /* Period register */

@@ -1,20 +1,10 @@
 /******************************************************************************/
 /*  Files to Include                                                          */
 /******************************************************************************/
-#include <xc.h>          /* Defines special funciton registers, CP0 regs  */
-#include <stdint.h>         /* For uint32_t definition                        */
-#include <stdbool.h>        /* For true/false definition                      */
-#include <sys/attribs.h>        /* for interrupts */
-
-#include "configuration_bits.h"
 #include "main.h"
-#include "system.h"
-#include "USBDebug.h"
 
-/* Code added by njaunich */
-#include "application.h"
+
 #define CO_NO_CAN_MODULES 1
-#include "CANopen.h"
 
 /* Global variables and objects */
     volatile uint16_t CO_timer1ms = 0U; /* variable increments each millisecond */
@@ -26,6 +16,7 @@
 
 /* i.e. uint32_t <variable_name>; */
     uint8_t test = 0;
+    uint8_t counter100ms = 0;
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
@@ -67,7 +58,9 @@ int32_t main(void)
     if(CO_OD_ROM.FirstWord != CO_OD_ROM.LastWord) while(1) CO_clearWDT();
 
     USBDebugInit();
-    WriteUART1("Hello! Welcome to the Max32!\r\n");
+    CANinit();
+    println("Hello! Welcome to the Max32!");
+    
     programStart();
 
     while(reset != CO_RESET_APP){
@@ -209,7 +202,12 @@ int32_t main(void)
 /* timer interrupt function executes every millisecond ************************/
 #ifndef USE_EXTERNAL_TIMER_1MS_INTERRUPT
 void __ISR(_TIMER_2_VECTOR, IPL3SOFT) CO_TimerInterruptHandler(void){
-
+    counter100ms++;
+    if (counter100ms == 100) {
+        program100ms();
+        counter100ms = 0;
+    }
+    program1ms();
     CO_TMR_ISR_FLAG = 0;
 
     CO_timer1ms++;
