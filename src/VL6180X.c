@@ -102,7 +102,7 @@ bool VL6180XInitialize(VL6180X* self){
 
 uint8_t getDistance(VL6180X* self) {
     I2C16bitWriteByte(self->address, VL6180X_SYSRANGE_START, 0x01);
-    delay(100);
+    delay(10);
     uint8_t dis;
     I2C16bitReadByte(self->address, VL6180X_RESULT_RANGE_VAL, &dis);
     self->distance = dis;

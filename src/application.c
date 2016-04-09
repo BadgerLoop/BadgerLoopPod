@@ -67,7 +67,7 @@ void program100ms(void){
 #endif
 #ifdef VL6180XTest
     uint8_t dis = mainProx.getDistance(&mainProx);
-    sprintf(output, "Distance Reading (mm): %3d\r\n", dis);
+    sprintf(output, "Distance Reading (mm): %3d", dis);
     println(output);
 #endif     
 
