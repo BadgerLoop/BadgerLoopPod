@@ -86,8 +86,8 @@ int32_t main(void)
         // Ethernet MAC address. This won't change anyone elses stuff...  - Steve
         // Side Note: We could potentially use something like this to use the same
         // code to program every microcontroller!
-        if(EMAC1SA0 == 0x000056C4 || EMAC1SA0 == 0x00003CEE) nodeId = 0x40;
-        if(EMAC1SA0 == 0x000040DF || EMAC1SA0 == 0x00000FFC) nodeId = 0x41;
+        if(EMAC1SA0 == 0x000056C4 || EMAC1SA0 == 0x00003CEE) nodeId = 0x40; //Shield 1
+        if(EMAC1SA0 == 0x000040DF || EMAC1SA0 == 0x00000FFC) nodeId = 0x41; //Shield 2
         
 #ifdef PrintMACAddr
         sprintf(output, "EMAC1SA0: %2X", EMAC1SA0);

@@ -12,6 +12,7 @@
 
 #ifdef VL6180XTest
 VL6180X mainProx;
+VL6180X translatedProx;
 #endif
 
 uint32_t dataCount = 0;
@@ -41,6 +42,7 @@ void programStart(void){
     
 #ifdef VL6180XTest
     VL6180XInit(&mainProx, 0x29);
+    VL6180XInit(&translatedProx, 0x51);
     //nick_init(&mainProx, 0x29);
 #endif
 }
@@ -68,7 +70,11 @@ void program100ms(void){
 #endif
 #ifdef VL6180XTest
     uint8_t dis = mainProx.getDistance(&mainProx);
-    sprintf(output, "Distance Reading (mm): %3d", dis);
+    sprintf(output, "Distance Reading mainProx(mm): %3d", dis);
+    println(output);
+    
+    dis = translatedProx.getDistance(&translatedProx);
+    sprintf(output, "Distance Reading translatedProx (mm): %3d", dis);
     println(output);
 #endif
 

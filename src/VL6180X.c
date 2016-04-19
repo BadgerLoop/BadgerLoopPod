@@ -97,6 +97,17 @@ bool VL6180XInitialize(VL6180X* self){
     I2C16bitWriteByte(self->address, VL6180X_FIRMWARE_RESULT_SCALER,0x01);
     // Clears the FRESH_OUT_OF_RESET bit to signal initialization is complete.
     //I2C16bitWriteByte(self->address, VL6180X_SYSTEM_FRESH_OUT_OF_RESET, 0x00);
+    
+    //Set range thresholds - Nick
+    I2C16bitWriteByte(self->address, VL6180X_SYSRANGE_THRESH_HIGH,0xFF);
+    I2C16bitWriteByte(self->address, VL6180X_SYSRANGE_THRESH_LOW,0x00);
+    
+    I2C16bitWriteByte(self->address, 0x025, 0xFF); //SYSRANGE__RANGE_IGNORE_VALID_HEIGHT
+    I2C16bitWriteByte(self->address, 0x02C, 0xFF); //SYSRANGE__MAX_AMBIENT_LEVEL_MULT - 0x02C
+    //I2C16bitWriteByte(self->address, 0x02D, 0x00); //SYSRANGE__RANGE_CHECK_ENABLES - 0x02D
+    //I2C16bitWriteByte(self->address, 0x021, 0x00); //SYSRANGE__CROSSTALK_VALID_HEIGHT - 0x21
+    I2C16bitWriteByte(self->address, 0x024, 0x04); //SYSRANGE__PART_TO_PART_RANGE_OFFSET - 0x24
+    
     return true;
 }
 
@@ -117,7 +128,7 @@ uint8_t getDistance(VL6180X* self) {
     I2C16bitWriteByte(self->address, VL6180X_SYSRANGE_START, 0x01);
     delay(10);
     uint8_t dis;
-    I2C16bitReadByte(self->address, VL6180X_RESULT_RANGE_VAL, &dis);
+    I2C16bitReadByte(self->address, VL6180X_RESULT_RANGE_RAW, &dis);
     self->distance = dis;
     return dis;
     //I2C16bitWriteByte(self->address, VL6180X_SYSTEM_INTERRUPT_CLEAR, 0x07);
