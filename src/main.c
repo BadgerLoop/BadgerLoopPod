@@ -28,7 +28,8 @@ void CANrx_lockCbSync(bool_t syncReceived) {
         CO_CAN_ISR2_ENABLE = 0;
     }
 }
-
+//#define PrintMACAddr
+//#define PrintAssignedCAN_NodeID
 int32_t main(void)
 {
     
@@ -65,6 +66,7 @@ int32_t main(void)
 
     while(reset != CO_RESET_APP){
 /* CANopen communication reset - initialize CANopen objects *******************/
+        char output[100] = {};
         CO_ReturnError_t err;
         uint16_t timer1msPrevious;
         uint16_t TMR_TMR_PREV = 0;
@@ -84,9 +86,18 @@ int32_t main(void)
         // Ethernet MAC address. This won't change anyone elses stuff...  - Steve
         // Side Note: We could potentially use something like this to use the same
         // code to program every microcontroller!
-        if(EMAC1SA0 == 0x000056C4) nodeId = 0x40;
-        if(EMAC1SA0 == 0x000040DF) nodeId = 0x41;
+        if(EMAC1SA0 == 0x000056C4 || EMAC1SA0 == 0x00003CEE) nodeId = 0x40;
+        if(EMAC1SA0 == 0x000040DF || EMAC1SA0 == 0x00000FFC) nodeId = 0x41;
         
+#ifdef PrintMACAddr
+        sprintf(output, "EMAC1SA0: %2X", EMAC1SA0);
+        println(output);
+#endif      
+#ifdef PrintAssignedCAN_NodeID
+        sprintf(output, "NodeId: %02X", nodeId);
+        println(output);
+        getMessage(output, 100);
+#endif
         CANBitRate = OD_CANBitRate;/* in kbps */
 
         /* initialize CANopen */

@@ -18,7 +18,6 @@ uint32_t dataCount = 0;
 
 /******************************************************************************/
 void programStart(void){ 
-    
     // Initialize the ADC
     /*
     ADCInit(5, true); // 5Hz (visible testing made easy) and using the Timer
