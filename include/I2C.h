@@ -6,12 +6,45 @@
 
 #define SYS_CLOCK       64000000ul  // System clock (64MHz for us)
 #define PB_CLOCK        64000000ul  // Peripheral clock (64MHz for us)
-#define I2C_CLOCK_FREQ  100000      // Typically 100kHz or 400kHz
+#define I2C_CLOCK_FREQ  400000      // Typically 100kHz or 400kHz
 #define I2C_TIMEOUT     3200000     // In CP0 Ticks. CP0 Ticks are 2/SYS_CLOCK long
                                     // At 64MHz, this is 31.25ns. 32 Ticks is 1us
 #define I2C_BUS         1           // PIC32 has 5 I2C busses
 #define I2C_READ        1
 #define I2C_WRITE       0
+// EEPROM Constants
+typedef enum
+{
+#ifdef _I2C1
+    // I2C Module 1 ID
+    I2C1,
+#endif
+
+#ifdef _I2C2
+    // I2C Module 2 ID
+    I2C2,
+#endif
+
+#ifdef _I2C3
+    // I2C Module 3 ID
+    I2C3,
+#endif
+
+#ifdef _I2C4
+    // I2C Module 4 ID
+    I2C4,
+#endif
+
+#ifdef _I2C5
+    // I2C Module 5 ID
+    I2C5,
+#endif
+
+    // Number of available I2C modules.
+    I2C_NUMBER_OF_MODULES
+
+} I2C_MODULE;
+#define EEPROM_I2C_BUS  I2C1
 
 /* Defines used by the library for determining which I2C bus to use */
 #if I2C_BUS == 1

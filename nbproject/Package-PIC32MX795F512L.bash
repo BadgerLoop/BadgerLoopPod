@@ -10,9 +10,9 @@ CND_CONF=PIC32MX795F512L
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/BadgerLoopPod.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=BadgerLoopPod.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=badgerlooppod/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/BadgerLoopPod.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=BadgerLoopPod.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=badgerlooppod.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/badgerlooppod/bin
+makeDirectory ${TMPDIR}/badgerlooppod.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/badgerlooppod.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/badgerlooppod.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/badgerlooppod.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/badgerlooppod.x.tar *
 checkReturnCode
 
 # Cleanup

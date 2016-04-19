@@ -25,6 +25,19 @@ I2CError I2CInit() {
     I2C_CONbits.ON = 1;
     return I2CStatus = I2CSuccess;
 }
+//Nick I2C testing
+uint32_t             actualClock;
+void init_I2C_Nick(void) {
+    actualClock = I2CSetFrequency(EEPROM_I2C_BUS, GetPeripheralClock(), I2C_CLOCK_FREQ);
+    if ( abs(actualClock-I2C_CLOCK_FREQ) > I2C_CLOCK_FREQ/10 )
+    {
+        DBPRINTF("Error: I2C1 clock frequency (%u) error exceeds 10%%.\n", (unsigned)actualClock);
+    }
+
+    // Enable the I2C bus
+    I2CEnable(EEPROM_I2C_BUS, 1);
+    
+}
 
 /*******************************************************************************
  * Function:

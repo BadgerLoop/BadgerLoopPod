@@ -7,7 +7,7 @@
 
 // Makes testing individual parts easy! Comment out what you don't want
 #define I2C
-#define MPU9250Test
+//#define MPU9250Test
 #define VL6180XTest
 
 #ifdef VL6180XTest
@@ -28,7 +28,8 @@ void programStart(void){
     
 #ifdef I2C
     // Initialize the I2C bus
-    I2CInit();
+    //I2CInit();
+    init_I2C_Nick();
 #endif
     
 #ifdef MPU9250Test
@@ -41,6 +42,7 @@ void programStart(void){
     
 #ifdef VL6180XTest
     VL6180XInit(&mainProx, 0x29);
+    //nick_init(&mainProx, 0x29);
 #endif
 }
 
@@ -79,7 +81,8 @@ void program100ms(void){
         while (_CP0_GET_COUNT() < 3200000) { // 100ms?
             ;
         }
-        I2CInit();
+        //I2CInit();
+        init_I2C_Nick();
     }
 #endif
     

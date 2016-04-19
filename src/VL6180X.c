@@ -100,6 +100,19 @@ bool VL6180XInitialize(VL6180X* self){
     return true;
 }
 
+void nick_init(VL6180X* self, uint8_t deviceAddress) {
+    self->address = deviceAddress;
+    self->distance = 0;
+    self->ambientLight = 0;
+    self->getDistance = &getDistance;
+    self->getAmbientLight = &getAmbientLight;
+    I2C16bitWriteByte(self->address, VL6180X_SYSALS_START, 0x00);
+    I2C16bitWriteByte(self->address, VL6180X_SYSRANGE_START, 0x00);
+    I2C16bitWriteByte(self->address, VL6180X_INTERLEAVED_MODE_ENABLE, 0x00);
+    
+    I2C16bitWriteByte(self->address, VL6180X_SYSALS_INTEGRATION_PERIOD, 1, 0x06);
+}
+
 uint8_t getDistance(VL6180X* self) {
     I2C16bitWriteByte(self->address, VL6180X_SYSRANGE_START, 0x01);
     delay(10);
