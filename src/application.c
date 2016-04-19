@@ -7,7 +7,7 @@
 
 // Makes testing individual parts easy! Comment out what you don't want
 #define I2C
-//#define MPU9250Test
+#define MPU9250Test
 #define VL6180XTest
 
 #ifdef VL6180XTest
@@ -71,7 +71,7 @@ void program100ms(void){
     uint8_t dis = mainProx.getDistance(&mainProx);
     sprintf(output, "Distance Reading (mm): %3d", dis);
     println(output);
-#endif     
+#endif
 
 #ifdef I2C
     if (I2CStatus == I2CBusCollision) {
