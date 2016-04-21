@@ -25,7 +25,4 @@ bool checkACK(void);
 bool checkNACK(void);
 void sendACK(void);
 void sendNACK(void);
-
-void I2CWriteBytes(uint8_t deviceAddress, uint8_t deviceRegister, uint8_t numBytes, uint8_t* data);
-void I2CReadBytes(uint8_t deviceAddress, uint8_t deviceRegister, uint8_t numBytes, uint8_t* data);
 void I2CRequestFrom(uint8_t deviceAddress, int numBytes, uint8_t *data);

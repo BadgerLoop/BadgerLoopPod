@@ -100,33 +100,3 @@ void I2CWriteBytes(uint8_t deviceAddress, uint8_t deviceRegister, uint8_t numByt
     for (i = 0; i < dataCount; i++) I2CSendByte((I1CTXBuffer+i)); 
     I2CStop();
 }
-
-void I2CReadBytes(uint8_t deviceAddress, uint8_t deviceRegister, uint8_t numBytes, uint8_t* data) {
-    /*
-    // Prep the I2C TX Buffer with the device address (with write bit) and register.
-    I1CTXBuffer[0] = deviceAddress << 1;
-    I1CTXBuffer[1] = deviceRegister;
-    
-    // Initial Start
-    I2CStart(); 
-
-    // Send the address and register we want to read
-    I2CSendByte(I1CTXBuffer);
-    I2CSendByte((I1CTXBuffer+1));
-
-    // Send repeated start condition
-    I2CRepeatedStart();
-    
-    I1CTXBuffer[0] = (deviceAddress << 1) + 1;
-    I2CSendByte(I1CTXBuffer);
-
-    size_t i;
-    for (i = 0; i < numBytes; i++) {
-        if (i != 0) I2CAcknowledge(true);
-        I2CReceiveByte((data+i));
-    }
-    I2CAcknowledge(false);
-    return I2CStop();
-    */
-}
-

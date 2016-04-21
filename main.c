@@ -2,7 +2,6 @@
 #include "main.h"
 
 #define MAX_LENGTH 255
-#define MAX_DATA_BYTES 4
 
 void main(void) {
     DDPCONbits.JTAGEN = 0;
