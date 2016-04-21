@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=testing.X
+PROJECTNAME=BadgerLoopPod
 
 # Active Configuration
 DEFAULTCONF=default
