@@ -13,3 +13,4 @@
 
 void getPressureData(uint8_t addr, uint8_t *data);
 void printPressureData(uint8_t *data);
+void getAndPrintPressureData(uint8_t addr);

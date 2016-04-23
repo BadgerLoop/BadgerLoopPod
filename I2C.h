@@ -14,6 +14,7 @@
 #define I2C_TIMEOUT     3200000ul
 
 void I2Cinit(void);
+void IdleI2C1(void);
 void I2Cdisable(void);
 bool I2CCheckTimeout(void);
 void I2CStart(void);
@@ -26,3 +27,7 @@ bool checkNACK(void);
 void sendACK(void);
 void sendNACK(void);
 void I2CRequestFrom(uint8_t deviceAddress, int numBytes, uint8_t *data);
+void I2CwriteByteToRegister(uint8_t deviceAddress, uint16_t deviceRegister, uint8_t byte);
+void I2CwriteWordToRegister(uint8_t deviceAddress, uint16_t deviceRegister, uint16_t data);
+uint8_t I2CReadByteFromRegister(uint8_t deviceAddress, uint16_t deviceRegister);
+void I2CReadConsecutiveRegisters(uint8_t deviceAddress, uint16_t deviceRegister, uint8_t numBytes, uint8_t *data);

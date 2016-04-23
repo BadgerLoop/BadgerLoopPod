@@ -24,3 +24,8 @@ void printPressureData(uint8_t *data) {
     sprintf(toPrint, "Status: %d Temperature: %f, Pressure: %f", status, celcius, kPa);
     println(toPrint);
 }
+
+void getAndPrintPressureData(uint8_t addr) {
+    I2CRequestFrom(addr, 4, pressureData);
+    printPressureData(pressureData);
+}

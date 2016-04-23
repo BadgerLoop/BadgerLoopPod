@@ -9,8 +9,10 @@ void main(void) {
     initLEDs();
     beginSerial();
     I2CInit();
+    initVL();
     char message[MAX_LENGTH];
     uint8_t I2Cdata[] = {0x12, 0x23, 0x34, 0x45};
+    uint8_t myByte = 0x88;
     uint8_t sensorAddr = 0x78;
     int i = 0;
     println("Program started.");
@@ -26,8 +28,11 @@ void main(void) {
         }
         
         if (readButton()) {
-            getPressureData(sensorAddr, I2Cdata);
-            printPressureData(I2Cdata);
+            //getAndPrintPressureData(sensorAddr);
+            myByte = VL_getDistance();
+            print("Byte received: ");
+            printByte(myByte);
+            println("");
             delay(500);
         }
         checkSerialErrors();
