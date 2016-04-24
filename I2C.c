@@ -16,7 +16,17 @@ bool I2CCheckTimeout() {
     return false;
 }
 
-void IdleI2C1(void) { while(I2C1CONbits.SEN || I2C1CONbits.PEN || I2C1CONbits.RCEN || I2C1CONbits.ACKEN || I2C1STATbits.TRSTAT); }
+void IdleI2C1(void) {
+    _CP0_GET_COUNT();
+    while((I2C1CONbits.SEN || I2C1CONbits.PEN || I2C1CONbits.RCEN || I2C1CONbits.ACKEN || I2C1STATbits.TRSTAT) && !I2CCheckTimeout());
+    if (I2CCheckTimeout()) {
+        if (I2C1CONbits.SEN) println("IDLE: Start condition in progress.");
+        if (I2C1CONbits.PEN) println("IDLE: Stop condition in progress.");
+        if (I2C1CONbits.RCEN) println("IDLE: Receive in progress.");
+        if (I2C1CONbits.ACKEN) println("IDLE: Acknolwedge in progress.");
+        if (I2C1STATbits.TRSTAT) println("IDLE: Transmit in progress.");
+    }
+}
 
 void I2CStart() {
     IdleI2C1();
@@ -41,6 +51,7 @@ void I2CRepeatedStart() {
 }
 
 void I2CSendByte(uint8_t* data) {
+    IdleI2C1();
     _CP0_SET_COUNT(0);
     while (I2C1STATbits.TBF);
     if (I2C1STATbits.BCL || I2C1STATbits.IWCOL) {
@@ -72,6 +83,7 @@ void sendNACK() {
 }
 
 uint8_t I2CReceiveByte(void) {
+    IdleI2C1();
     _CP0_SET_COUNT(0);
     I2C1CONbits.RCEN = 1; 
     while (I2C1CONbits.RCEN && !I2CCheckTimeout());
@@ -136,7 +148,7 @@ uint8_t I2CReadByteFromRegister(uint8_t deviceAddress, uint16_t deviceRegister) 
             println(message);
         }
     i = I2CReceiveByte();
-    sendACK();
+    sendNACK();
     I2CStop();
     return i;
 }
@@ -165,8 +177,9 @@ void I2CReadConsecutiveRegisters(uint8_t deviceAddress, uint16_t deviceRegister,
     }
     for (i = 0; i < numBytes; i++) {
         *(data + i) = I2CReceiveByte();
-        sendACK();
+        if (i < numBytes - 1) sendACK();
     }
+    sendNACK();
     I2CStop();
 }
 

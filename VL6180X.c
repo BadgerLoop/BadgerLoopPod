@@ -81,15 +81,13 @@ uint8_t VL_getDistance() {
     //}  
     uint8_t retval = 0x00;
     VL_setReg(VL6180X_SYSRANGE_START, 0x01);
-    
+    delay(10);
     //if (!(VL_getReg(0x4F) & 0x10)) {
     //    println("Sensor wasn't ready for a reading.");
     //    return 0x00;
     //}
-    delay(10);
     retval = VL_getReg(VL6180X_RESULT_RANGE_VAL);
-    delay(10);
-    VL_setReg(0x15, 0x07); // need to clear interrupt status bit for range only
+    //VL_setReg(0x15, 0x07); // need to clear interrupt status bit for range only
     return retval;
 }
 

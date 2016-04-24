@@ -28,12 +28,11 @@ void main(void) {
         }
         
         if (readButton()) {
-            //getAndPrintPressureData(sensorAddr);
-            
+            getAndPrintPressureData(sensorAddr);
             myByte = VL_getDistance();
-            print("Byte received: ");
+            print("VL: ");
             printByte(myByte);
-            println(""); 
+            println("");
             delay(500);
         }
         checkSerialErrors();
