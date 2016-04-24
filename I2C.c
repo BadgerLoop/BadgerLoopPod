@@ -5,80 +5,80 @@ uint8_t I1CRXBuffer[255];
 char message[255];
 
 void I2CInit() {
-    I2C3BRG = BRGVAL100k;
-    I2C3CONbits.ON = 1;  
+    I2C1BRG = BRGVAL100k;
+    I2C1CONbits.ON = 1;  
 }
 
-void I2CDisable() { I2C3CONbits.ON = 0; }
+void I2CDisable() { I2C1CONbits.ON = 0; }
 
 bool I2CCheckTimeout() {
     if (_CP0_GET_COUNT() > I2C_TIMEOUT) return true;
     return false;
 }
 
-void IdleI2C1(void) { while(I2C3CONbits.SEN || I2C3CONbits.PEN || I2C3CONbits.RCEN || I2C3CONbits.ACKEN || I2C3STATbits.TRSTAT); }
+void IdleI2C1(void) { while(I2C1CONbits.SEN || I2C1CONbits.PEN || I2C1CONbits.RCEN || I2C1CONbits.ACKEN || I2C1STATbits.TRSTAT); }
 
 void I2CStart() {
     IdleI2C1();
     _CP0_SET_COUNT(0);
-    I2C3CONbits.SEN = 1;
-    while (I2C3CONbits.SEN && !I2CCheckTimeout());
+    I2C1CONbits.SEN = 1;
+    while (I2C1CONbits.SEN && !I2CCheckTimeout());
     if (I2CCheckTimeout()) println("I2C: Start condition timeout.");
 }
 
 void I2CStop() {
     _CP0_SET_COUNT(0);
-    I2C3CONbits.PEN = 1;            // initiate stop on SDA/SCL
-    while (I2C3CONbits.PEN && !I2CCheckTimeout());
+    I2C1CONbits.PEN = 1;            // initiate stop on SDA/SCL
+    while (I2C1CONbits.PEN && !I2CCheckTimeout());
     if (I2CCheckTimeout()) println("I2C: Stop condition timeout.");
 }
 
 void I2CRepeatedStart() {     
-    I2C3CONbits.RSEN = 1;
+    I2C1CONbits.RSEN = 1;
     _CP0_SET_COUNT(0);
-    while (I2C3CONbits.RSEN && !I2CCheckTimeout());
+    while (I2C1CONbits.RSEN && !I2CCheckTimeout());
     if (I2CCheckTimeout()) println("I2C: Repeated Start condition timeout.");
 }
 
 void I2CSendByte(uint8_t* data) {
     _CP0_SET_COUNT(0);
-    while (I2C3STATbits.TBF);
-    if (I2C3STATbits.BCL || I2C3STATbits.IWCOL) {
+    while (I2C1STATbits.TBF);
+    if (I2C1STATbits.BCL || I2C1STATbits.IWCOL) {
         println("Bus/write collision during write. Aborting write."); // it won't do it anyways
         return;
     }
-    I2C3TRN = *data;
-    while (I2C3STATbits.TRSTAT && !I2CCheckTimeout());
+    I2C1TRN = *data;
+    while (I2C1STATbits.TRSTAT && !I2CCheckTimeout());
     if (I2CCheckTimeout()) println("I2C: Sending Byte timed out.");
 }
 
-bool checkACK() { return !I2C3STATbits.ACKSTAT; } // we WANT a 0 (ACK rec)
-bool checkNACK() { return I2C3STATbits.ACKSTAT; } // we WANT a 1 (NACK rec)
+bool checkACK() { return !I2C1STATbits.ACKSTAT; } // we WANT a 0 (ACK rec)
+bool checkNACK() { return I2C1STATbits.ACKSTAT; } // we WANT a 1 (NACK rec)
 
 void sendACK() {
     _CP0_SET_COUNT(0);
-    I2C3CONbits.ACKDT = 0;          // prepare to send ACK 
-    I2C3CONbits.ACKEN = 1;          // send ACKDT
-    while (I2C3CONbits.ACKEN && !I2CCheckTimeout());
+    I2C1CONbits.ACKDT = 0;          // prepare to send ACK 
+    I2C1CONbits.ACKEN = 1;          // send ACKDT
+    while (I2C1CONbits.ACKEN && !I2CCheckTimeout());
     if (I2CCheckTimeout()) println("I2C: Sending ACK timed out.");
 }
 
 void sendNACK() {
     _CP0_SET_COUNT(0);
-    I2C3CONbits.ACKDT = 1;          // prepare to send ACK 
-    I2C3CONbits.ACKEN = 1;          // send ACKDT
-    while (I2C3CONbits.ACKEN && !I2CCheckTimeout());
+    I2C1CONbits.ACKDT = 1;          // prepare to send ACK 
+    I2C1CONbits.ACKEN = 1;          // send ACKDT
+    while (I2C1CONbits.ACKEN && !I2CCheckTimeout());
     if (I2CCheckTimeout()) println("I2C: Sending ACK timed out.");
 }
 
 uint8_t I2CReceiveByte(void) {
     _CP0_SET_COUNT(0);
-    I2C3CONbits.RCEN = 1; 
-    while (I2C3CONbits.RCEN && !I2CCheckTimeout());
+    I2C1CONbits.RCEN = 1; 
+    while (I2C1CONbits.RCEN && !I2CCheckTimeout());
     if (I2CCheckTimeout()) println("I2C: Receiving Byte timed out.");
-    if (!I2C3STATbits.RBF) println("I2C: Receive buffer not full!");
+    if (!I2C1STATbits.RBF) println("I2C: Receive buffer not full!");
     uint8_t retval;
-    retval = I2C3RCV;
+    retval = I2C1RCV;
     return retval;
 }
 
