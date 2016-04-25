@@ -5,6 +5,7 @@
 #include "myTimer.h"
 #include "usbSerial.h"
 #include "I2C.h"
+#include "ADC.h"
 
 #define SYSCLK      (64000000ul)    // Hz
 #define PBCLK       (64000000ul)
