@@ -1,10 +1,11 @@
 #include <xc.h>
 
-// for calculating delay: Tdelay (seconds) = (Fpb) * 256 * DELAY
-// Fpb must be around 500kHz because a delay constant of 500 produces about a
-// quarter second delay
+// for calculating delay: Tdelay (seconds) = (Tpb) * 8 * DELAY
 
-#define DELAY1MS   250    // in ms
+#define DELAY1MS        8000
+#define DELAY1US        8
+#define T1CONSETTING    0x8010      // 1:8 prescale
 
 void delay(int ms);
+void delay1us(int us);
 void initTimer1(void);

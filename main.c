@@ -8,13 +8,14 @@ void main(void) {
     initTimer1();
     initLEDs();
     beginSerial();
-    I2CInit();
-    initVL();
+    ADCinit();
+    //I2CInit();
+    //initVL();
     char message[MAX_LENGTH];
-    uint8_t I2Cdata[] = {0x12, 0x23, 0x34, 0x45};
-    uint8_t myByte = 0x88;
+    uint8_t myByte = 0;
     uint8_t sensorAddr = 0x78;
     int i = 0;
+    int data = 0;
     println("Program started.");
     while (1) {
         
@@ -28,14 +29,19 @@ void main(void) {
         }
         
         if (readButton()) {
-            getAndPrintPressureData(sensorAddr);
-            myByte = VL_getDistance();
-            print("VL: ");
-            printByte(myByte);
-            println("");
+            data = readThermistor(0, 1);
+            sprintf(message, "Reading: %d", data);
+            println(message);
             delay(500);
+            //getAndPrintPressureData(sensorAddr);
+            //myByte = VL_getDistance();
+            //print("VL: ");
+            //printByte(myByte);
+            //println("");
+            
+            
+            delay(100);
         }
         checkSerialErrors();
-        delay(500);
     }
 }

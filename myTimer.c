@@ -8,8 +8,16 @@ void delay(int ms) {
     }
 }
 
+void delay1us(int us) {
+    int i = 0;
+    for (i = 0; i < us; i++) {
+        TMR1 = 0;
+        while(TMR1 < DELAY1US);
+    }
+}
+
 void initTimer1(void) {
     TMR1 = 0;
-    T1CON = 0x8030;
+    T1CON = T1CONSETTING;
     PR1 = 0xffff;
 }

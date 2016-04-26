@@ -5,4 +5,5 @@ config.h  \
 ledShield.h  \
  myTimer.h  \
 usbSerial.h  \
-I2C.h 
+I2C.h  \
+ADC.h 
