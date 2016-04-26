@@ -13,6 +13,7 @@
       <itemPath>honeywellPressure.h</itemPath>
       <itemPath>VL6180X.h</itemPath>
       <itemPath>ADC.h</itemPath>
+      <itemPath>NeoPixel.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -29,6 +30,7 @@
       <itemPath>honeywellPressure.c</itemPath>
       <itemPath>VL6180X.c</itemPath>
       <itemPath>ADC.c</itemPath>
+      <itemPath>NeoPixel.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

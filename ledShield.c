@@ -10,6 +10,10 @@ void initLEDs(void) {
     TRISDbits.TRISD12 = 0;
     TRISGbits.TRISG1 = 0;
     TRISGbits.TRISG0 = 1;
+    
+    TRISAbits.TRISA4 = 0;   // for NeoPixels
+            
+            
     RED1 = 0;
     RED2 = 0;
     YELLOW1 = 0;

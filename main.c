@@ -14,6 +14,12 @@ void main(void) {
     char message[MAX_LENGTH];
     uint8_t myByte = 0;
     uint8_t sensorAddr = 0x78;
+    
+    uint8_t NeoTesting[3];
+    NeoTesting[0] = 0x00;
+    NeoTesting[1] = 0x00;
+    NeoTesting[2] = 0x00;
+    
     int i = 0;
     int data = 0;
     println("Program started.");
@@ -42,6 +48,8 @@ void main(void) {
             
             delay(100);
         }
-        checkSerialErrors();
+        //checkSerialErrors();    
+        
+        //NeoSend3Bytes(NeoTesting);
     }
 }

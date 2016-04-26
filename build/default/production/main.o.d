@@ -6,4 +6,5 @@ ledShield.h  \
  myTimer.h  \
 usbSerial.h  \
 I2C.h  \
-ADC.h 
+ADC.h  \
+NeoPixel.h 

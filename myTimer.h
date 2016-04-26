@@ -1,10 +1,11 @@
 #include <xc.h>
 
-// for calculating delay: Tdelay (seconds) = (Tpb) * 8 * DELAY
+// for calculating delay: Tdelay (seconds) = (Tpb) * DELAY
+// shortest delay = 15.625 ns
 
-#define DELAY1MS        8000
-#define DELAY1US        8
-#define T1CONSETTING    0x8010      // 1:8 prescale
+#define DELAY1MS        64000
+#define DELAY1US        64
+#define T1CONSETTING    0x8000      // 1:1 prescale
 
 void delay(int ms);
 void delay1us(int us);
