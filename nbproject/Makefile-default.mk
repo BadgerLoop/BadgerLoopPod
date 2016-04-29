@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c ledShield.c myTimer.c usbSerial.c I2C.c honeywellPressure.c VL6180X.c ADC.c NeoPixel.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c ledShield.c myTimer.c usbSerial.c I2C.c honeywellPressure.c VL6180X.c ADC.c NeoPixel.c inputCapture.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/ledShield.o ${OBJECTDIR}/myTimer.o ${OBJECTDIR}/usbSerial.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/honeywellPressure.o ${OBJECTDIR}/VL6180X.o ${OBJECTDIR}/ADC.o ${OBJECTDIR}/NeoPixel.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/ledShield.o.d ${OBJECTDIR}/myTimer.o.d ${OBJECTDIR}/usbSerial.o.d ${OBJECTDIR}/I2C.o.d ${OBJECTDIR}/honeywellPressure.o.d ${OBJECTDIR}/VL6180X.o.d ${OBJECTDIR}/ADC.o.d ${OBJECTDIR}/NeoPixel.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/ledShield.o ${OBJECTDIR}/myTimer.o ${OBJECTDIR}/usbSerial.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/honeywellPressure.o ${OBJECTDIR}/VL6180X.o ${OBJECTDIR}/ADC.o ${OBJECTDIR}/NeoPixel.o ${OBJECTDIR}/inputCapture.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/ledShield.o.d ${OBJECTDIR}/myTimer.o.d ${OBJECTDIR}/usbSerial.o.d ${OBJECTDIR}/I2C.o.d ${OBJECTDIR}/honeywellPressure.o.d ${OBJECTDIR}/VL6180X.o.d ${OBJECTDIR}/ADC.o.d ${OBJECTDIR}/NeoPixel.o.d ${OBJECTDIR}/inputCapture.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/ledShield.o ${OBJECTDIR}/myTimer.o ${OBJECTDIR}/usbSerial.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/honeywellPressure.o ${OBJECTDIR}/VL6180X.o ${OBJECTDIR}/ADC.o ${OBJECTDIR}/NeoPixel.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/ledShield.o ${OBJECTDIR}/myTimer.o ${OBJECTDIR}/usbSerial.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/honeywellPressure.o ${OBJECTDIR}/VL6180X.o ${OBJECTDIR}/ADC.o ${OBJECTDIR}/NeoPixel.o ${OBJECTDIR}/inputCapture.o
 
 # Source Files
-SOURCEFILES=main.c ledShield.c myTimer.c usbSerial.c I2C.c honeywellPressure.c VL6180X.c ADC.c NeoPixel.c
+SOURCEFILES=main.c ledShield.c myTimer.c usbSerial.c I2C.c honeywellPressure.c VL6180X.c ADC.c NeoPixel.c inputCapture.c
 
 
 CFLAGS=
@@ -148,6 +148,12 @@ ${OBJECTDIR}/NeoPixel.o: NeoPixel.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/NeoPixel.o 
 	@${FIXDEPS} "${OBJECTDIR}/NeoPixel.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/NeoPixel.o.d" -o ${OBJECTDIR}/NeoPixel.o NeoPixel.c     
 	
+${OBJECTDIR}/inputCapture.o: inputCapture.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/inputCapture.o.d 
+	@${RM} ${OBJECTDIR}/inputCapture.o 
+	@${FIXDEPS} "${OBJECTDIR}/inputCapture.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/inputCapture.o.d" -o ${OBJECTDIR}/inputCapture.o inputCapture.c     
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -202,6 +208,12 @@ ${OBJECTDIR}/NeoPixel.o: NeoPixel.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/NeoPixel.o.d 
 	@${RM} ${OBJECTDIR}/NeoPixel.o 
 	@${FIXDEPS} "${OBJECTDIR}/NeoPixel.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/NeoPixel.o.d" -o ${OBJECTDIR}/NeoPixel.o NeoPixel.c     
+	
+${OBJECTDIR}/inputCapture.o: inputCapture.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/inputCapture.o.d 
+	@${RM} ${OBJECTDIR}/inputCapture.o 
+	@${FIXDEPS} "${OBJECTDIR}/inputCapture.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/inputCapture.o.d" -o ${OBJECTDIR}/inputCapture.o inputCapture.c     
 	
 endif
 

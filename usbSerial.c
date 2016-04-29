@@ -118,9 +118,9 @@ void println(const char * string) {
 
 void checkSerialErrors() {
     if (U1STAbits.PERR) changeLED(6, 1);
-    else changeLED(6, 0);
+    //else changeLED(6, 0);
     if (U1STAbits.FERR) changeLED(5, 1);   
-    else changeLED(5, 0);
+    //else changeLED(5, 0);
     if (U1STAbits.OERR) changeLED(4, 1); 
-    else changeLED(4, 0);
+    //else changeLED(4, 0);
 }

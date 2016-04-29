@@ -3,18 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/myTimer.h</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/ledShield.c</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/config.h</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/usbSerial.h</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/myTimer.c</file>
+            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/VL6180X.h</file>
             <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/main.c</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/ADC.h</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/NeoPixel.h</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/ADC.c</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/usbSerial.c</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/NeoPixel.c</file>
-            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/ledShield.h</file>
+            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/honeywellPressure.h</file>
+            <file>file:/C:/Users/Badgerloop/MPLABXProjects/BadgerLoopPod/VL6180X.c</file>
         </group>
     </open-files>
 </project-private>

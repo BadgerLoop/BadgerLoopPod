@@ -8,48 +8,51 @@ void main(void) {
     initTimer1();
     initLEDs();
     beginSerial();
-    ADCinit();
-    //I2CInit();
-    //initVL();
+    //ADCinit();
+    I2CInit();
+    initVL(VL_ADDRESS);
+    //initVL(VL_TRANSLATED);
     char message[MAX_LENGTH];
-    uint8_t myByte = 0;
-    uint8_t sensorAddr = 0x78;
     
-    uint8_t NeoTesting[3];
-    NeoTesting[0] = 0x00;
-    NeoTesting[1] = 0x00;
-    NeoTesting[2] = 0x00;
-    
-    int i = 0;
-    int data = 0;
-    println("Program started.");
+    uint8_t myByte = 0; 
+    int getData = 1;
+    //println("Program started.");
+    YELLOW2 = 1;
+    while(!readButton());
+    YELLOW2 = 0;
+    GREEN1 = 1;
+    delay(500);
     while (1) {
-        
-        // get messages over UART
-        if (SerialAvailable()) {
-            changeLED(3, 1);
-            getMessage(message, MAX_LENGTH);
-            delay(200);
+        if (getData) {
+            if (readButton()){
+                GREEN1 = 0;
+                RED1 = 1;
+                getData = 0;
+                delay(500);
+            }
+            myByte = VL_getDistance(VL_ADDRESS);
+            sprintf(message, "%d", myByte);
             println(message);
-            changeLED(3, 0);
+            //delay(100);
         }
-        
-        if (readButton()) {
-            data = readThermistor(0, 1);
-            sprintf(message, "Reading: %d", data);
-            println(message);
-            delay(500);
-            //getAndPrintPressureData(sensorAddr);
-            //myByte = VL_getDistance();
-            //print("VL: ");
-            //printByte(myByte);
-            //println("");
-            
-            
-            delay(100);
+        else {
+            if (readButton()) {
+                GREEN1 = 1;
+                RED1 = 0;
+                getData = 1;
+                delay(500);
+            }
         }
-        //checkSerialErrors();    
-        
-        //NeoSend3Bytes(NeoTesting);
+        checkSerialErrors();    
     }
 }
+
+            //getAndPrintPressureData(PRESSURE_ADDRESS);
+            //data = readThermistor(0, 1);
+            //sprintf(message, "Reading: %d", data);
+            //println(message);
+            //delay(500);
+            //myByte = VL_getDistance(VL_TRANSLATED);
+            //print("VL 2: ");
+            //printByte(myByte);
+            //println("");

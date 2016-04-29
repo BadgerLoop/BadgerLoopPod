@@ -14,6 +14,7 @@
       <itemPath>VL6180X.h</itemPath>
       <itemPath>ADC.h</itemPath>
       <itemPath>NeoPixel.h</itemPath>
+      <itemPath>inputCapture.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -31,6 +32,7 @@
       <itemPath>VL6180X.c</itemPath>
       <itemPath>ADC.c</itemPath>
       <itemPath>NeoPixel.c</itemPath>
+      <itemPath>inputCapture.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

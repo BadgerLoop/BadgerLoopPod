@@ -7,4 +7,6 @@ ledShield.h  \
 usbSerial.h  \
 I2C.h  \
 ADC.h  \
-NeoPixel.h 
+NeoPixel.h  \
+VL6180X.h  \
+ honeywellPressure.h 

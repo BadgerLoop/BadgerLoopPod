@@ -1,7 +1,9 @@
 #include <xc.h>
 #include "I2C.h"
 
-#define VL_ADDRESS  0x29
+#define VL_ADDRESS      0x29       //0x29
+
+#define VL_TRANSLATED   (0x29 ^ 0x78)
 
 #define VL6180X_IDENTIFICATION_MODEL_ID              0x0000
 #define VL6180X_IDENTIFICATION_MODEL_REV_MAJOR       0x0001
@@ -64,11 +66,11 @@
 #define VL6180X_I2C_SLAVE_DEVICE_ADDRESS             0x0212
 #define VL6180X_INTERLEAVED_MODE_ENABLE              0x02A3
 
-void VL_setReg(uint16_t register, uint8_t value);
-void VL_setReg16(uint16_t registerAddr, uint16_t value);
-uint8_t VL_getReg(uint16_t registerAddr);
-void initVL(void);
-void VL_defautSettings(void);
-void VL_checkStatus(void);
-void updateErrors(void);
-uint8_t VL_getDistance(void);
+void VL_setReg(uint8_t address, uint16_t register, uint8_t value);
+void VL_setReg16(uint8_t address, uint16_t registerAddr, uint16_t value);
+uint8_t VL_getReg(uint8_t address, uint16_t registerAddr);
+void initVL(uint8_t address);
+void VL_defautSettings(uint8_t address);
+void VL_checkStatus(uint8_t address);
+void updateErrors(uint8_t address);
+uint8_t VL_getDistance(uint8_t address);

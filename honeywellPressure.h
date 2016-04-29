@@ -3,6 +3,7 @@
 #include <float.h>
 #include "I2C.h"
 
+#define PRESSURE_ADDRESS    0x78
 #define PMAX            1.60
 #define OUTMAX          16384.00
 #define BARSCALAR       9.7656*(10^-5)                //(PMAX/OUTMAX)
