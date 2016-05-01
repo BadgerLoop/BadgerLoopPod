@@ -52,6 +52,11 @@ void print(const char * string) {
     }
 }
 
+void sendByte(uint8_t byte) {
+    while (U1STAbits.UTXBF); // wait until tx buffer isn't full
+    U1TXREG = byte;
+}
+
 void printByte(uint8_t byte) {
     char first = '\0';
     char second = '\0';

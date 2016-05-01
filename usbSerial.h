@@ -15,3 +15,4 @@ void println(const char * string);
 void checkSerialErrors(void);
 void printByte(uint8_t byte);
 void printWord(uint16_t word);
+void sendByte(uint8_t byte);

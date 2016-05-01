@@ -1,3 +1,4 @@
 build/default/production/inputCapture.o:  \
 inputCapture.c  \
-inputCapture.h 
+inputCapture.h  \
+ ledShield.h 

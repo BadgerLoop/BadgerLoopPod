@@ -1,7 +1,7 @@
 #include "myTimer.h"
 
 void delay(int ms) {
-    int i = 0;
+    volatile int i = 0;
     for (i = 0; i < ms; i++) {
         TMR1 = 0;
         while (TMR1 < DELAY1MS);
@@ -9,7 +9,7 @@ void delay(int ms) {
 }
 
 void delay1us(int us) {
-    int i = 0;
+    volatile int i = 0;
     for (i = 0; i < us; i++) {
         TMR1 = 0;
         while(TMR1 < DELAY1US);

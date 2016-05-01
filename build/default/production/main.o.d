@@ -9,4 +9,5 @@ I2C.h  \
 ADC.h  \
 NeoPixel.h  \
 VL6180X.h  \
- honeywellPressure.h 
+ honeywellPressure.h  \
+inputCapture.h 
