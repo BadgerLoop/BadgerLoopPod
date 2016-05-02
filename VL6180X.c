@@ -91,18 +91,9 @@ void VL_defautSettings(uint8_t address) {
 }
 
 uint8_t VL_getDistance(uint8_t address) {
-    //updateErrors();
-    //if (!(errors[0] & 1)) {
-    //    println("VL not ready for next operation.");
-    //    return 0x00;
-    //}  
     uint8_t retval = 0x00;
     VL_setReg(address, VL6180X_SYSRANGE_START, 0x01);
-    delay(7);
-    //if (!(VL_getReg(0x4F) & 0x10)) {
-    //    println("Sensor wasn't ready for a reading.");
-    //    return 0x00;
-    //}
+    delay(7);                                                   // with this implementation this is as short as you can wait and have it still work!
     retval = VL_getReg(address, VL6180X_RESULT_RANGE_VAL);
     //VL_setReg(0x15, 0x07); // need to clear interrupt status bit for range only
     return retval;

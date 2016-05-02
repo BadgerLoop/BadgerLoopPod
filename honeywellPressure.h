@@ -3,6 +3,11 @@
 #include <float.h>
 //#include "I2C.h"
 
+// Honeywell Pressure Sensor (Sample Usage)
+//
+//HPprintPressureData();
+//if (I2CcheckError()) I2CprintError(); 
+
 #define PRESSURE_ADDRESS    0x78
 #define PMAX            1.60
 #define OUTMAX          16384.00

@@ -26,14 +26,7 @@ void main(void) {
     delay(500);
     uint8_t distanceData = 0x00;
     while (1) {
-        
-        // Honeywell Pressure Sensor
-        //
-        //HPprintPressureData();
-        //if (I2CcheckError()) I2CprintError(); 
-        
         // VL Testing
-        //
         distanceData = VL_getDistance(VL_ADDRESS);
         sprintf(message, "Distance: %d", distanceData);
         println(message);
@@ -41,15 +34,3 @@ void main(void) {
         delay(1000);
     }
 }
-
-// This code was for the Retro DAQ demo
-//
-//while(!inputAvailable());
-//time1 = getInput();
-//while(!inputAvailable());
-//time2 = getInput();
-//frequency = 250000 / time2;
-//sendByte((frequency & 0xff00) >> 8);
-//sendByte(frequency & 0xff);
-//sprintf(message, "%d", frequency);
-//println(message);

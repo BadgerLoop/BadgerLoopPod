@@ -3,8 +3,10 @@
 volatile int count = 1;
 volatile int numOverflow = 0;
 volatile int speed = 0;
-volatile int presses = 0;
 volatile int available = 0;
+volatile int time1 = 0;
+volatile int time2 = 0;
+volatile int frequency = 0;
 
 void startTimer2(void) {
     T2CONbits.TCKPS = 7;        // 1:256 = 250000 Hz
@@ -33,7 +35,6 @@ void inputCapInit(void) {
 int getInput(void) {     // or IC1CONbits.ICBNE
     if (available) {
         available = 0;
-        //speed = 250000 / (count + (50000*numOverflow));
         speed = count + 50000*numOverflow;
         numOverflow = 0;
         TMR2 = 0;
@@ -42,18 +43,26 @@ int getInput(void) {     // or IC1CONbits.ICBNE
     return 0;
 }
 
-int inputAvailable(void) {
-    return available;
-}
+int inputAvailable(void) { return available; }
 
 void __ISR (_INPUT_CAPTURE_1_VECTOR, ipl1) IC1Interrupt (void) {
     count = IC1BUF;
-    presses++;
     available = 1;
     _IC1F = 0;
 }
 
 void __ISR (_TIMER_2_VECTOR, ipl1) TM2Interrupt (void) {
-    numOverflow++;
+    numOverflow++;  // eventually we will be overflowing the timer, need to keep track of that!
     _T2IF = 0;
+}
+
+// this could be restructured inside the IC1Interrupt to check which step we are
+// in and act accordingly, that way we aren't polling for input
+int getStripFrequency(void) {
+    while(!inputAvailable());
+    time1 = getInput();
+    while(!inputAvailable());
+    time2 = getInput();
+    frequency = 250000 / time2; // we just wanted that second time
+    return frequency;
 }

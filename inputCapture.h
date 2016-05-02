@@ -2,6 +2,8 @@
 #include <peripheral/int.h>
 #include "ledShield.h"
 
+// INT1 is pin 48 on the Max32!
+
 #define _T2IE   IEC0bits.T2IE   // int enable (timer2)
 #define _T2IF   IFS0bits.T2IF   // int flag (timer2)
 #define _T2IP   IPC2bits.T2IP   // 3 bits wide, int priority
@@ -14,3 +16,4 @@ void startTimer2(void);
 void inputCapInit(void);
 int getCurrentSpeed(void);
 int getInput(void);
+int getStripFrequency(void);
