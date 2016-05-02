@@ -1,7 +1,7 @@
 #include <xc.h>
 #include <stdint.h>
 #include <float.h>
-#include "I2C.h"
+//#include "I2C.h"
 
 #define PRESSURE_ADDRESS    0x78
 #define PMAX            1.60
@@ -12,6 +12,8 @@
 #define TEMPSCALAR      0.097704                    //((200.00)/(2047.0))
 
 
-void getPressureData(uint8_t addr, uint8_t *data);
-void printPressureData(uint8_t *data);
-void getAndPrintPressureData(uint8_t addr);
+void getPressureData(uint8_t addr, int numBytes, uint8_t *data);
+void HPprintPressureData(void);
+double HPgetPressure(void);
+double HPgetTemperature(void);
+int HPgetStatus(void);

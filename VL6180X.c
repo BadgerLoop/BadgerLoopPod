@@ -41,6 +41,11 @@ void initVL(uint8_t address) {
     VL_setReg(address, 0x01a7, 0x1f);
     VL_setReg(address, 0x0030, 0x00);
     VL_defautSettings(address);
+    if (I2CcheckError()) { 
+        sprintf(errorMessage, "VL %d did not initialize: ", address);
+        println(errorMessage);
+        I2CprintError();
+    }
     //VL_checkStatus();
 }
 

@@ -4,8 +4,11 @@ uint8_t I1CTXBuffer[255];
 uint8_t I1CRXBuffer[255];
 char message[255];
 
+I2CError checkError = none;
+
 void I2CInit() {
-    I2C1BRG = BRGVAL100k;
+    // we don't need to adjust any settings
+    I2C1BRG = BRGVAL400k;
     I2C1CONbits.ON = 1;  
 }
 
@@ -17,50 +20,86 @@ bool I2CCheckTimeout() {
 }
 
 void IdleI2C1(void) {
-    _CP0_GET_COUNT();
+    _CP0_SET_COUNT(0);
     while((I2C1CONbits.SEN || I2C1CONbits.PEN || I2C1CONbits.RCEN || I2C1CONbits.ACKEN || I2C1STATbits.TRSTAT) && !I2CCheckTimeout());
     if (I2CCheckTimeout()) {
-        if (I2C1CONbits.SEN) println("IDLE: Start condition in progress.");
-        if (I2C1CONbits.PEN) println("IDLE: Stop condition in progress.");
-        if (I2C1CONbits.RCEN) println("IDLE: Receive in progress.");
-        if (I2C1CONbits.ACKEN) println("IDLE: Acknolwedge in progress.");
-        if (I2C1STATbits.TRSTAT) println("IDLE: Transmit in progress.");
+        if (I2C1CONbits.SEN) checkError = startTO;
+        if (I2C1CONbits.PEN) checkError = stopTO;
+        if (I2C1CONbits.RCEN) checkError = receivingTO;
+        if (I2C1CONbits.ACKEN) checkError = ackTO;
+        if (I2C1STATbits.TRSTAT) checkError = sendingTO;
+    }
+    else checkError = none;
+}
+
+int I2CcheckError(void) { return checkError; }
+
+void I2CprintError(void) {
+    switch (checkError) {
+        case none:
+            println("I2C: no errors.");
+            break;
+        case buscol:
+            println("I2C: Bus/write collision during write.");
+            break;
+        case startTO:
+            println("I2C: Start condition timeout.");
+            break;
+        case stopTO:
+            println("I2C: Stop condition timeout.");
+            break;
+        case receivingTO:
+            println("I2C: Receiving Byte timed out.");
+            break;
+        case sendingTO:
+            println("I2C: Sending Byte timed out.");
+            break;
+        case ackTO:
+            println("I2C: Sending ACK timed out.");
+            break;
+        case slaveNoResponse:
+            println("I2C: Slave didn't acknowledge.");
+            break;
     }
 }
 
 void I2CStart() {
-    IdleI2C1();
+    //IdleI2C1();       // this could waste computation time, if we need to use it later we can
     _CP0_SET_COUNT(0);
     I2C1CONbits.SEN = 1;
     while (I2C1CONbits.SEN && !I2CCheckTimeout());
-    if (I2CCheckTimeout()) println("I2C: Start condition timeout.");
+    if (I2CCheckTimeout()) checkError = startTO;
+    else checkError = none;
 }
 
 void I2CStop() {
     _CP0_SET_COUNT(0);
     I2C1CONbits.PEN = 1;            // initiate stop on SDA/SCL
     while (I2C1CONbits.PEN && !I2CCheckTimeout());
-    if (I2CCheckTimeout()) println("I2C: Stop condition timeout.");
+    if (I2CCheckTimeout()) checkError = stopTO;
+    else checkError = none;
 }
 
 void I2CRepeatedStart() {     
     I2C1CONbits.RSEN = 1;
     _CP0_SET_COUNT(0);
     while (I2C1CONbits.RSEN && !I2CCheckTimeout());
-    if (I2CCheckTimeout()) println("I2C: Repeated Start condition timeout.");
+    if (I2CCheckTimeout()) checkError = startTO;
+    else checkError = none;
 }
 
 void I2CSendByte(uint8_t* data) {
-    IdleI2C1();
+    //IdleI2C1();
     _CP0_SET_COUNT(0);
-    while (I2C1STATbits.TBF);
+    while (I2C1STATbits.TBF);                                           // wait if the transmit buffer is full
     if (I2C1STATbits.BCL || I2C1STATbits.IWCOL) {
-        println("Bus/write collision during write. Aborting write."); // it won't do it anyways
-        return;
+        checkError = buscol;
+        return; // it literally won't do anything, just give up
     }
     I2C1TRN = *data;
-    while (I2C1STATbits.TRSTAT && !I2CCheckTimeout());
-    if (I2CCheckTimeout()) println("I2C: Sending Byte timed out.");
+    while (I2C1STATbits.TRSTAT && !I2CCheckTimeout());                  // wait until we're done sending
+    if (I2CCheckTimeout()) checkError = sendingTO;
+    else checkError = none;
 }
 
 bool checkACK() { return !I2C1STATbits.ACKSTAT; } // we WANT a 0 (ACK rec)
@@ -71,7 +110,8 @@ void sendACK() {
     I2C1CONbits.ACKDT = 0;          // prepare to send ACK 
     I2C1CONbits.ACKEN = 1;          // send ACKDT
     while (I2C1CONbits.ACKEN && !I2CCheckTimeout());
-    if (I2CCheckTimeout()) println("I2C: Sending ACK timed out.");
+    if (I2CCheckTimeout()) checkError = ackTO;
+    else checkError = none;
 }
 
 void sendNACK() {
@@ -79,7 +119,8 @@ void sendNACK() {
     I2C1CONbits.ACKDT = 1;          // prepare to send ACK 
     I2C1CONbits.ACKEN = 1;          // send ACKDT
     while (I2C1CONbits.ACKEN && !I2CCheckTimeout());
-    if (I2CCheckTimeout()) println("I2C: Sending ACK timed out.");
+    if (I2CCheckTimeout()) checkError = ackTO;
+    else checkError = none;
 }
 
 uint8_t I2CReceiveByte(void) {
@@ -87,8 +128,8 @@ uint8_t I2CReceiveByte(void) {
     _CP0_SET_COUNT(0);
     I2C1CONbits.RCEN = 1; 
     while (I2C1CONbits.RCEN && !I2CCheckTimeout());
-    if (I2CCheckTimeout()) println("I2C: Receiving Byte timed out.");
-    if (!I2C1STATbits.RBF) println("I2C: Receive buffer not full!");
+    if (I2CCheckTimeout()) checkError = receivingTO;
+    if (!I2C1STATbits.RBF) checkError = receivingTO;
     uint8_t retval;
     retval = I2C1RCV;
     return retval;
@@ -98,7 +139,7 @@ void I2CRequestFrom(uint8_t deviceAddress, int numBytes, uint8_t* data) {
     I1CTXBuffer[0] = (deviceAddress << 1) + 1; // add one to signify read
     I2CStart();
     I2CSendByte(I1CTXBuffer);
-    if (!checkACK()) println("Slave didn't acknowledge.");
+    if (!checkACK()) checkError = slaveNoResponse;
     short i = 0;
     for (i = 0; i < numBytes; i++) {
         data[i] = I2CReceiveByte();
@@ -117,10 +158,7 @@ void I2CwriteByteToRegister(uint8_t deviceAddress, uint16_t deviceRegister, uint
     I2CStart();
     for (i = 0; i < 4; i++) {
         I2CSendByte((I1CTXBuffer+i));
-        if (!checkACK) {
-            sprintf(message, "Sensor %d didn't acknowledge byte %d.", deviceAddress, i);
-            println(message);
-        }
+        if (!checkACK) checkError = slaveNoResponse;
     }
     I2CStop();
 }
@@ -134,19 +172,13 @@ uint8_t I2CReadByteFromRegister(uint8_t deviceAddress, uint16_t deviceRegister) 
     I2CStart();
     for (i = 0; i < 3; i++) {
         I2CSendByte((I1CTXBuffer+i));
-        if (!checkACK) {
-            sprintf(message, "Sensor %d didn't acknowledge byte %d.", deviceAddress, i);
-            println(message);
-        }
+        if (!checkACK) checkError = slaveNoResponse;
     }
     I2CStop();
     I1CTXBuffer[0] = (deviceAddress << 1) + 1; // set read indication
     I2CStart();
     I2CSendByte(I1CTXBuffer); 
-    if (!checkACK) {
-            sprintf(message, "Sensor %d didn't acknowledge its address + read indication.", deviceAddress);
-            println(message);
-        }
+    if (!checkACK) checkError = slaveNoResponse;
     i = I2CReceiveByte();
     sendNACK();
     I2CStop();
@@ -161,20 +193,14 @@ void I2CReadConsecutiveRegisters(uint8_t deviceAddress, uint16_t deviceRegister,
     I2CStart();
     for (i = 0; i < 3; i++) {
         I2CSendByte((I1CTXBuffer+i));
-        if (!checkACK) {
-            sprintf(message, "Sensor %d didn't acknowledge byte %d.", deviceAddress, i);
-            println(message);
-        }
+        if (!checkACK) checkError = slaveNoResponse;
     }
     I2CStop();
-    delay(10);
+    //delay(10);
     I2CStart();
     I1CTXBuffer[0] = I1CTXBuffer[0] + 1; // read indication
     I2CSendByte(I1CTXBuffer);
-    if (!checkACK) {
-        sprintf(message, "Sensor %d didn't acknowledge byte %d.", deviceAddress, i);
-        println(message);
-    }
+    if (!checkACK) checkError = slaveNoResponse;
     for (i = 0; i < numBytes; i++) {
         *(data + i) = I2CReceiveByte();
         if (i < numBytes - 1) sendACK();
@@ -193,10 +219,7 @@ void I2CwriteWordToRegister(uint8_t deviceAddress, uint16_t deviceRegister, uint
     I2CStart();
     for (i = 0; i < 5; i++) {
         I2CSendByte((I1CTXBuffer+i));
-        if (!checkACK) {
-            sprintf(message, "Sensor %d didn't acknowledge byte %d.", deviceAddress, i);
-            println(message);
-        }
+        if (!checkACK) checkError = slaveNoResponse;
     }
     I2CStop();
 }
