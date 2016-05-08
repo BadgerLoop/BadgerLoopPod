@@ -33,12 +33,14 @@
       <itemPath>ADC.c</itemPath>
       <itemPath>NeoPixel.c</itemPath>
       <itemPath>inputCapture.c</itemPath>
+      <itemPath>DACmodule.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>DACmodule.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
