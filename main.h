@@ -10,6 +10,7 @@
 #include "VL6180X.h"
 #include "honeywellPressure.h"
 #include "inputCapture.h"
+#include "PWM.h"
 
 #define SYSCLK      (64000000ul)    // Hz
 #define PBCLK       (64000000ul)

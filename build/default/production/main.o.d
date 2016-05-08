@@ -10,4 +10,5 @@ ADC.h  \
 NeoPixel.h  \
 VL6180X.h  \
  honeywellPressure.h  \
-inputCapture.h 
+inputCapture.h  \
+PWM.h 

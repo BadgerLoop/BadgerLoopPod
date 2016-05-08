@@ -11,14 +11,15 @@ void initializers(void) {
     DDPCONbits.JTAGEN = 0;
     initTimer1();
     initLEDs();
-    initSPI();
+    //initSPI(); TRISFbits.TRISF0 = 0;
     beginSerial();
     //ADCinit();
     //I2CInit();
     //initVL(VL_ADDRESS);
     //initVL(VL_TRANSLATED);
     //inputCapInit();
-    TRISFbits.TRISF0 = 0;
+    PWMinit(1, 20);
+    servoSet(0);
 }
 
 int getBoardNumber(void) {
@@ -55,23 +56,30 @@ int main(void) {
     printBoardNumber();
     waitForButton();
     GREEN1 = 1;
-    //int i = 1;
+    int i = 1;
     while (1) {
-        //for (i = 1; i < 11; i++) {
-            sendDACsignal(1023, 1);
-            LATFbits.LATF0 = 1;
-            delay1us(250);
-            LATFbits.LATF0 = 0;
-            delay(100);
-            waitForButton();
-            
-            sendDACsignal(1, 1);
-            LATFbits.LATF0 = 1;
-            delay1us(250);
-            LATFbits.LATF0 = 0;
-            delay(100);
-            waitForButton();
-        //}
+        for (i = -90; i <= 90; i++) {
+            servoSet(i);
+            delay(5);
+        }
+        for (i = 90; i >= -90; i--) {
+            servoSet(i);
+            delay(5);
+        }
     }
     return 0;
 }
+
+            //sendDACsignal(1023, 1);
+            //LATFbits.LATF0 = 1;
+            //delay1us(250);
+            //LATFbits.LATF0 = 0;
+            //delay(100);
+            //waitForButton();
+            
+            //sendDACsignal(1, 1);
+            //LATFbits.LATF0 = 1;
+            //delay1us(250);
+            //LATFbits.LATF0 = 0;
+            //delay(100);
+            //waitForButton();
