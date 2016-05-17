@@ -45,13 +45,13 @@ int getInput(void) {     // or IC1CONbits.ICBNE
 
 int inputAvailable(void) { return available; }
 
-void __ISR (_INPUT_CAPTURE_1_VECTOR, ipl1) IC1Interrupt (void) {
+void __ISR (_INPUT_CAPTURE_1_VECTOR, ipl1SOFT) IC1Interrupt (void) {
     count = IC1BUF;
     available = 1;
     _IC1F = 0;
 }
 
-void __ISR (_TIMER_2_VECTOR, ipl1) TM2Interrupt (void) {
+void __ISR (_TIMER_2_VECTOR, ipl1SOFT) TM2Interrupt (void) {
     numOverflow++;  // eventually we will be overflowing the timer, need to keep track of that!
     _T2IF = 0;
 }

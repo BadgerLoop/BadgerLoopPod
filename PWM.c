@@ -37,6 +37,11 @@ void PWMinit(int OCnum, int period) {
     PWMsetDuty(50);
 }
 
+void PWMsetPeriod(int ms) {
+    if (ms < 1 || ms > 262) return;
+    PR3 = (250 * ms) - 1;
+}
+
 void PWMsetDuty(int dutyPerc) {
     if (dutyPerc < 0 || dutyPerc > 100) return;
     switch (moduleNum) {
@@ -79,3 +84,14 @@ void servoSet(int angle) {
             break;
     }
 }
+
+// Example Code:
+//
+        //for (i = -90; i <= 90; i++) {
+        //    servoSet(i);
+        //   delay(5);
+        //}
+        //for (i = 90; i >= -90; i--) {
+        //    servoSet(i);
+        //    delay(5);
+        //}

@@ -4,7 +4,8 @@
 #define MAX_LENGTH 255
 
 // variables
-int run = 0;
+int errors = 0;
+uint8_t myData[6];
 char message[MAX_LENGTH];
 
 void initializers(void) {
@@ -14,12 +15,13 @@ void initializers(void) {
     //initSPI(); TRISFbits.TRISF0 = 0;
     beginSerial();
     //ADCinit();
-    //I2CInit();
-    //initVL(VL_ADDRESS);
+    I2CInit();
+    //if (initCompass() != 0) I2CprintError();
+    initVL(VL_ADDRESS);
     //initVL(VL_TRANSLATED);
     //inputCapInit();
-    PWMinit(1, 20);
-    servoSet(0);
+    //PWMinit(1, 20);
+    //servoSet(0);
 }
 
 int getBoardNumber(void) {
@@ -56,20 +58,26 @@ int main(void) {
     printBoardNumber();
     waitForButton();
     GREEN1 = 1;
-    int i = 1;
+    int i = 0;
     while (1) {
-        for (i = -90; i <= 90; i++) {
-            servoSet(i);
-            delay(5);
-        }
-        for (i = 90; i >= -90; i--) {
-            servoSet(i);
-            delay(5);
-        }
+        GREEN2 = 1;
+        
+        myData[0] = VL_getDistance(VL_ADDRESS);
+        sprintf(message, "Data: %d", myData[0]);
+        println(message);
+        
+        //if (CompassGetData(myData) != 0) I2CprintError();
+        //for (i = 0; i < 6; i++) {
+        //    sprintf(message, "Data %d: %d", i, myData[i]);
+        //    println(message);
+        //}
+        delay(500);
+        GREEN2 = 0;
+        delay(500);
     }
     return 0;
 }
-
+            //DAC Testing
             //sendDACsignal(1023, 1);
             //LATFbits.LATF0 = 1;
             //delay1us(250);
@@ -83,3 +91,14 @@ int main(void) {
             //LATFbits.LATF0 = 0;
             //delay(100);
             //waitForButton();
+            
+            // Compass Testing
+
+            //RED2 = 1;
+            //while (!checkDataReady());
+            //RED2 = 0;
+            //if (CompassGetData(myData) != 0) I2CprintError();
+            //for (i = 0; i < 6; i++) {
+            //    sprintf(message, "Data %d: %d", i, myData[i]);
+            //    println(message);
+            //}

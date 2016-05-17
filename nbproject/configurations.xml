@@ -17,6 +17,7 @@
       <itemPath>inputCapture.h</itemPath>
       <itemPath>DACmodule.h</itemPath>
       <itemPath>PWM.h</itemPath>
+      <itemPath>honeywellCompass.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -37,6 +38,7 @@
       <itemPath>inputCapture.c</itemPath>
       <itemPath>DACmodule.c</itemPath>
       <itemPath>PWM.c</itemPath>
+      <itemPath>honeywellCompass.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

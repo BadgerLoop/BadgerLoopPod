@@ -12,4 +12,5 @@
 
 void PWMinit(int OCnum, int period);
 void PWMsetDuty(int dutyPerc);
+void PWMsetPeriod(int ms);
 void servoSet(int val);

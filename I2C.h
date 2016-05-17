@@ -43,5 +43,6 @@ void I2CwriteByteToRegister(uint8_t deviceAddress, uint16_t deviceRegister, uint
 void I2CwriteWordToRegister(uint8_t deviceAddress, uint16_t deviceRegister, uint16_t data);
 uint8_t I2CReadByteFromRegister(uint8_t deviceAddress, uint16_t deviceRegister);
 void I2CReadConsecutiveRegisters(uint8_t deviceAddress, uint16_t deviceRegister, uint8_t numBytes, uint8_t *data);
+void I2CwriteByteTo8bitRegister(uint8_t deviceAddress, uint8_t deviceRegister, uint8_t data);
 void I2CprintError(void);
 int I2CcheckError(void);

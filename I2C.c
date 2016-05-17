@@ -23,13 +23,14 @@ void IdleI2C1(void) {
     _CP0_SET_COUNT(0);
     while((I2C1CONbits.SEN || I2C1CONbits.PEN || I2C1CONbits.RCEN || I2C1CONbits.ACKEN || I2C1STATbits.TRSTAT) && !I2CCheckTimeout());
     if (I2CCheckTimeout()) {
+        RED1 = 1;
         if (I2C1CONbits.SEN) checkError = startTO;
         if (I2C1CONbits.PEN) checkError = stopTO;
         if (I2C1CONbits.RCEN) checkError = receivingTO;
         if (I2C1CONbits.ACKEN) checkError = ackTO;
         if (I2C1STATbits.TRSTAT) checkError = sendingTO;
     }
-    else checkError = none;
+    else { checkError = none; RED1 = 0; }
 }
 
 int I2CcheckError(void) { return checkError; }
@@ -89,7 +90,7 @@ void I2CRepeatedStart() {
 }
 
 void I2CSendByte(uint8_t* data) {
-    //IdleI2C1();
+    IdleI2C1();
     _CP0_SET_COUNT(0);
     while (I2C1STATbits.TBF);                                           // wait if the transmit buffer is full
     if (I2C1STATbits.BCL || I2C1STATbits.IWCOL) {
@@ -158,7 +159,20 @@ void I2CwriteByteToRegister(uint8_t deviceAddress, uint16_t deviceRegister, uint
     I2CStart();
     for (i = 0; i < 4; i++) {
         I2CSendByte((I1CTXBuffer+i));
-        if (!checkACK) checkError = slaveNoResponse;
+        if (!checkACK()) checkError = slaveNoResponse;
+    }
+    I2CStop();
+}
+
+void I2CwriteByteTo8bitRegister(uint8_t deviceAddress, uint8_t deviceRegister, uint8_t data) {
+    int i = 0;
+    I1CTXBuffer[0] = deviceAddress << 1;
+    I1CTXBuffer[1] = deviceRegister;
+    I1CTXBuffer[2] = data;
+    I2CStart();
+    for (i = 0; i < 3; i++) {
+        I2CSendByte((I1CTXBuffer+i));
+        if (!checkACK()) checkError = slaveNoResponse;
     }
     I2CStop();
 }
@@ -172,13 +186,13 @@ uint8_t I2CReadByteFromRegister(uint8_t deviceAddress, uint16_t deviceRegister) 
     I2CStart();
     for (i = 0; i < 3; i++) {
         I2CSendByte((I1CTXBuffer+i));
-        if (!checkACK) checkError = slaveNoResponse;
+        if (!checkACK()) checkError = slaveNoResponse;
     }
     I2CStop();
     I1CTXBuffer[0] = (deviceAddress << 1) + 1; // set read indication
     I2CStart();
     I2CSendByte(I1CTXBuffer); 
-    if (!checkACK) checkError = slaveNoResponse;
+    if (!checkACK()) checkError = slaveNoResponse;
     i = I2CReceiveByte();
     sendNACK();
     I2CStop();
@@ -193,14 +207,14 @@ void I2CReadConsecutiveRegisters(uint8_t deviceAddress, uint16_t deviceRegister,
     I2CStart();
     for (i = 0; i < 3; i++) {
         I2CSendByte((I1CTXBuffer+i));
-        if (!checkACK) checkError = slaveNoResponse;
+        if (!checkACK()) checkError = slaveNoResponse;
     }
     I2CStop();
     //delay(10);
     I2CStart();
     I1CTXBuffer[0] = I1CTXBuffer[0] + 1; // read indication
     I2CSendByte(I1CTXBuffer);
-    if (!checkACK) checkError = slaveNoResponse;
+    if (!checkACK()) checkError = slaveNoResponse;
     for (i = 0; i < numBytes; i++) {
         *(data + i) = I2CReceiveByte();
         if (i < numBytes - 1) sendACK();
@@ -219,7 +233,34 @@ void I2CwriteWordToRegister(uint8_t deviceAddress, uint16_t deviceRegister, uint
     I2CStart();
     for (i = 0; i < 5; i++) {
         I2CSendByte((I1CTXBuffer+i));
-        if (!checkACK) checkError = slaveNoResponse;
+        if (!checkACK()) checkError = slaveNoResponse;
+    }
+    I2CStop();
+}
+
+void I2CSendTwoBytes(uint8_t byte1, uint8_t byte2) {
+    I1CTXBuffer[0] = byte1;
+    I1CTXBuffer[1] = byte2;
+    I2CStart();
+    I2CSendByte(I1CTXBuffer);
+    if (!checkACK()) checkError = slaveNoResponse;
+    I2CSendByte((I1CTXBuffer+1));
+    if (!checkACK()) checkError = slaveNoResponse;
+    I2CStop();
+}
+
+void I2CCompassReadRegisters(uint8_t byte1, uint8_t byte2, uint8_t *data) {
+    int i = 0;
+    I1CTXBuffer[0] = byte1;
+    I1CTXBuffer[1] = byte2;
+    I2CStart();
+    I2CSendByte(I1CTXBuffer);
+    if (!checkACK()) checkError = slaveNoResponse;
+    I2CSendByte((I1CTXBuffer+1));
+    if (!checkACK()) checkError = slaveNoResponse;
+    for (i = 0; i < 6; i++) {
+        *(data+i) = I2CReceiveByte();
+        sendNACK();
     }
     I2CStop();
 }
